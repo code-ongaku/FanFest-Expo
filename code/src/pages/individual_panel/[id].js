@@ -11,13 +11,26 @@ export async function getStaticPaths() {
     };
 }
 
-export default function Vendor() {
-    const router = useRouter();
-    const { id } = router.query;
+export async function getStaticProps({ params }) {
+    // Hardcoded data
+    const panels = {
+      1: { id: 1, title: 'Panel 1', body: 'This is the content of Panel 1.' }
+    };
   
-    return (
-      <div className=''>
-          {id}
-      </div>
-    );
+    const panel = panels[params.id];
+  
+    return {
+      props: {
+        panel
+      },
+    };
   }
+
+export default function Post({ panel }) {
+  return (
+    <div>
+      <h1>{panel.title}</h1>
+      <p>{panel.body}</p>
+    </div>
+  );
+}
