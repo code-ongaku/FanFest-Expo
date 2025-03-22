@@ -28,7 +28,7 @@ export async function getStaticProps({ params }) {
 
 export default function Vendor({ vendor }) {
   return (
-    <div className="bg-[#F8F1FF] text-[#7E52A0] w-screen font-roboto-slab flex flex-col items-center">
+    <div className="bg-[#F8F1FF] text-[#7E52A0] min-h-screen w-screen font-roboto-slab flex flex-col items-center">
         <Navbar/>
         <h1 className="mt-7 font-bold text-4xl border-b-2 w-[90%] text-center pb-5">{vendor.title}</h1>
         <div className="w-[90%] mt-5 font-bold">
