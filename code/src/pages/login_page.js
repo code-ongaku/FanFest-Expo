@@ -1,9 +1,9 @@
-import Navbar from "../components/titlebar.js";
+import Titlebar from "../components/titlebar.js";
 
 export default function Login({}) {
   return (
     <div className="bg-[#F8F1FF] text-[#7E52A0] min-h-screen w-screen font-roboto-slab flex flex-col items-center">
-        <Navbar/>
+        <Titlebar/>
         {/* Title Section */}
         <div className="text-center mt-8">
             <h1 className="text-[#7E52A0] font-roboto-slab text-4xl font-bold">Welcome to FanFest Expo!</h1>

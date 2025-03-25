@@ -8,6 +8,7 @@ export default function Events({}) {
       {/* Title Section */}
       <div className="text-center mt-8">
         <h1 className="text-[#7E52A0] font-roboto-slab text-4xl font-bold">Find Events</h1>
+        <div className="w-[120%] border-b border-[#7E52A0] my-4 ml-[-12%]"></div>
       </div>
 
       {/* Categories Section */}
