@@ -7,7 +7,7 @@ export default function SignUp({}) {
         {/* Title Section */}
         <div className="text-center mt-8">
             <h1 className="text-[#7E52A0] font-roboto-slab text-4xl font-bold">Welcome to FanFest Expo!</h1>
-            <p className="text-[#7E52A0] font-roboto-slab text-2xl">April 25-27</p>
+            <p className="text-[#7E52A0] font-roboto-slab text-2xl mt-4">April 25-27</p>
         </div>
 
         {/* Enter Credentials Box */}
