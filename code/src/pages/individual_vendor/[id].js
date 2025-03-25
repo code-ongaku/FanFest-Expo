@@ -4,7 +4,7 @@ export async function getStaticPaths() {
     const paths = [
       { params: { id: '1' } }
     ];
-  
+
     return {
       paths,
       fallback: false
@@ -28,10 +28,10 @@ export async function getStaticProps({ params }) {
 
 export default function Vendor({ vendor }) {
   return (
-    <div className="bg-[#F8F1FF] text-[#7E52A0] h-screen w-screen font-roboto-slab flex flex-col items-center">
+    <div className="bg-[#F8F1FF] text-[#7E52A0] min-h-screen w-screen font-roboto-slab flex flex-col items-center">
         <Navbar/>
         <h1 className="mt-7 font-bold text-4xl border-b-2 w-[90%] text-center pb-5">{vendor.title}</h1>
-        <div className="w-[80%] mt-5 font-bold">
+        <div className="w-[90%] mt-5 font-bold">
             <p>Category: {vendor.category}</p>
             <p>Time: {vendor.time}</p>
             <p>Location: {vendor.location}</p>
@@ -40,7 +40,7 @@ export default function Vendor({ vendor }) {
             <button className="py-1 bg-[#DECDF5] rounded w-[45%]">Add to wishlist</button>
             <button className="py-1 bg-[#DECDF5] rounded w-[45%]">Add to Schedule</button>
         </div>
-        <div className="w-[90%] mt-9 flex flex-col items-end">
+        <div className="w-[90%] mt-9 flex flex-col items-end mb-7">
             <button className="py-1 bg-[#DECDF5] rounded w-[45%]">Expand Map</button>
             <div className="w-full aspect-square bg-white">Pretend theres a map here</div>
         </div>
