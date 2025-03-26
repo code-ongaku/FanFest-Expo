@@ -2,9 +2,10 @@ import Navbar from "../components/navbar";
 
 export default function LoggedInHome() {
   return (
-    <div className="bg-[#F8F1FF] text-[#7E52A0] min-h-screen font-roboto-slab">
-  <Navbar />
-  <div className="flex flex-col items-center">
+    <div className="bg-[#F8F1FF] text-[#7E52A0] min-h-screen font-roboto-slab flex flex-col items-center">
+      
+      {/* Reusable Navbar */}
+      <Navbar />
 
       {/* User Info */}
       <div className="text-center mt-4 mb-4">
@@ -70,7 +71,6 @@ export default function LoggedInHome() {
           </tbody>
         </table>
       </div>
-    </div>
     </div>
   );
 }
