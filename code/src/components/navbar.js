@@ -23,7 +23,7 @@ export default function Navbar() {
     { icon: FindAmenities, label: "Find Amenities", href: "/find_ammenities" },
     { icon: FindEvents, label: "Find Events", href: "/find_events" },
     { icon: FindPanels, label: "Find Panels", href: "/find_panels" },
-    { icon: FindVendors, label: "Find Vendor", href: "/find_vendor" },
+    { icon: FindVendors, label: "Find Vendor", href: "/find_vendors" },
     { icon: MySchedule, label: "My Schedule", href: "/schedule" },
     { icon: WishList, label: "Wishlist", href: "/wishlist" },
     { icon: FindRoute, label: "Find Route", href: "/find_route" },
