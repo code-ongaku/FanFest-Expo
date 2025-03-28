@@ -20,7 +20,7 @@ export default function Navbar() {
 
   const menuItems = [
     { icon: ConventionLayout, label: "Convention Layout", href: "/convention_layout" },
-    { icon: FindAmenities, label: "Find Amenities", href: "/find_ammenities" },
+    { icon: FindAmenities, label: "Find Amenities", href: "/find_amenities" },
     { icon: FindEvents, label: "Find Events", href: "/find_events" },
     { icon: FindPanels, label: "Find Panels", href: "/find_panels" },
     { icon: FindVendors, label: "Find Vendor", href: "/find_vendors" },
