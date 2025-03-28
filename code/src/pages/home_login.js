@@ -11,7 +11,7 @@ export default function LoggedInHome() {
 
     const getEventForSlot = (time) => {
       if (day === "Friday") {
-        if (time === "9am")
+        if (time === "10am")
           return (
             <td className="border border-black bg-red-300 py-2" colSpan="2">
               10 am - 12 pm &nbsp;&nbsp; Opening Ceremony
@@ -49,7 +49,7 @@ export default function LoggedInHome() {
         if (time === "11am")
           return (
             <td
-              className="border border-black bg-[#ead6ff] text-[#7E52A0] py-2"
+              className="border border-black bg-purple-300 py-2"
               colSpan="2"
             >
               11:30 am - 1 pm &nbsp;&nbsp; Idol Fest
