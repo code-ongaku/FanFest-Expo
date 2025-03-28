@@ -32,8 +32,8 @@ export default function Navbar() {
   return (
     <div className="w-full relative">
       {/* Navbar container */}
-      <div className="w-full bg-[#DECDF5] p-4 flex justify-between items-center font-semibold shadow">
-        <div className="w-8 h-8" />
+      <div className="w-full bg-[#DECDF5]  p-4 flex justify-between items-center font-semibold shadow">
+        <div className="w-8 h-8 " />
 
         {/* Center logo */}
         <div className="flex items-center justify-center">
@@ -57,7 +57,7 @@ export default function Navbar() {
 
         {/* Hamburger */}
         <button onClick={() => setMenuOpen(!menuOpen)} className="w-8 h-8">
-          <Image src={Hamburger} alt="menu" className="h-8 w-8" />
+          <Image src={Hamburger} alt="menu" className="h-8 w-8 hover:bg-[#d6c4f0]" />
         </button>
       </div>
 
@@ -66,7 +66,7 @@ export default function Navbar() {
         <div className="absolute top-full right-4 mt-2 bg-[#DECDF5] rounded-lg shadow-lg p-4 grid grid-cols-2 gap-6 z-50">
           {menuItems.map((item, idx) => (
             <Link key={idx} href={item.href} onClick={() => setMenuOpen(false)}>
-              <div className="flex flex-col items-center text-center text-[#7E52A0] font-semibold w-28 cursor-pointer">
+              <div className="flex flex-col items-center text-center text-[#7E52A0] hover:bg-[#d6c4f0] font-semibold w-28 cursor-pointer">
                 <Image src={item.icon} alt={item.label} className="w-12 h-12 mb-1" />
                 <p className="underline">{item.label}</p>
               </div>

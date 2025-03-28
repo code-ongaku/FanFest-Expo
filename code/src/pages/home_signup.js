@@ -52,7 +52,7 @@ export default function HomeSignup() {
           )}
         </p>
         <button
-          className="bg-[#D6D7FB] text-[#7E52A0] font-semibold px-4 py-1 rounded mt-1"
+          className="bg-[#D6D7FB] hover:bg-[#c5c7f0] text-[#7E52A0] font-semibold px-4 py-1 rounded mt-1"
           onClick={() => {
             if (isEditing && name.trim() === "") {
               alert("Username cannot be empty.");
@@ -73,8 +73,10 @@ export default function HomeSignup() {
             key={day}
             onClick={() => setActiveDay(day)}
             className={`px-4 py-1 rounded-full font-medium ${
-              activeDay === day ? "bg-[#E3D4FF]" : "bg-[#F0E9FF]"
-            }`}
+              activeDay === day
+                ? "bg-[#E3D4FF] hover:bg-[#d6c4f0]"
+                : "bg-[#F0E9FF] hover:bg-[#e4dbf0]"
+            }`}            
           >
             {day}
           </button>
