@@ -53,7 +53,14 @@ export default function HomeSignup() {
         </p>
         <button
           className="bg-[#D6D7FB] text-[#7E52A0] font-semibold px-4 py-1 rounded mt-1"
-          onClick={() => setIsEditing((prev) => !prev)}
+          onClick={() => {
+            if (isEditing && name.trim() === "") {
+              alert("Username cannot be empty.");
+              return;
+            }
+            setIsEditing((prev) => !prev);
+          }}
+          
         >
           {isEditing ? "SAVE" : "EDIT"}
         </button>
