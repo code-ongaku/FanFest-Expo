@@ -1,9 +1,12 @@
 import React from 'react';
+import { useRouter } from 'next/router';
 import Image from 'next/image';
 import HomeIcon from '../../public/home-icon.svg';
 import Circle from '../../public/circle.svg';
 
 const Welcome = () => {
+  const router = useRouter();
+
   return (
     <div className="bg-[#F8F1FF] min-h-screen font-['Roboto_Slab'] text-[#7E52A0]">
 
@@ -41,17 +44,26 @@ const Welcome = () => {
 
       {/* Auth Buttons */}
       <div className="mt-6 flex justify-center items-center gap-4">
-        <button className="bg-[#7E52A0] text-white font-bold text-lg px-6 py-3 rounded-2xl shadow-md underline">
+        <button
+          onClick={() => router.push('/login_page')}
+          className="bg-[#7E52A0] text-white font-bold text-lg px-6 py-3 rounded-2xl shadow-md underline"
+        >
           Login
         </button>
         <span className="font-bold text-lg">or</span>
-        <button className="bg-[#7E52A0] text-white font-bold text-lg px-6 py-3 rounded-2xl shadow-md underline">
+        <button
+          onClick={() => router.push('/signup_page')}
+          className="bg-[#7E52A0] text-white font-bold text-lg px-6 py-3 rounded-2xl shadow-md underline"
+        >
           Sign Up
         </button>
       </div>
 
       {/* Guest Link */}
-      <div className="text-center mt-4 font-bold underline">
+      <div
+        onClick={() => router.push('/guest_home')}
+        className="text-center mt-4 font-bold underline cursor-pointer"
+      >
         Continue as Guest
       </div>
 
@@ -59,7 +71,10 @@ const Welcome = () => {
       <div className="mt-10 flex justify-center items-center gap-4">
         <span className="text-xl font-bold">Location</span>
         <span className="text-2xl">➝</span>
-        <div className="bg-[#7E52A0] w-14 h-14 rounded-xl flex items-center justify-center shadow-md">
+        <div
+          onClick={() => router.push('/event_location')}
+          className="bg-[#7E52A0] w-14 h-14 rounded-xl flex items-center justify-center shadow-md cursor-pointer"
+        >
           <svg className="w-8 h-8 fill-white" viewBox="0 0 24 24">
             <path d="M12 2C8.14 2 5 5.14 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.86-3.14-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z" />
           </svg>
@@ -68,7 +83,8 @@ const Welcome = () => {
 
       {/* More Info */}
       <div className="text-center mt-10 text-lg font-bold underline px-4">
-        For more information<br />visit our website <a href="#" className="underline">here</a>
+        For more information<br />
+        <a href="/website" className="underline">visit our website here</a>
       </div>
     </div>
   );
