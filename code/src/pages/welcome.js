@@ -1,9 +1,34 @@
 import React from 'react';
+import Image from 'next/image';
+import HomeIcon from '../../public/home-icon.svg';
+import Circle from '../../public/circle.svg';
 
 const Welcome = () => {
   return (
     <div className="bg-[#F8F1FF] min-h-screen font-['Roboto_Slab'] text-[#7E52A0]">
-      
+
+      {/* Top Bar with Home Icon and FanFest Expo Text */}
+      <div className="w-full bg-[#DECDF5] p-4 flex justify-center items-center shadow font-semibold">
+        <div className="flex items-center justify-center">
+          <div className="relative w-8 h-8 mr-2">
+            <Image
+              src={Circle}
+              alt="circle"
+              layout="fill"
+              objectFit="contain"
+            />
+            <Image
+              src={HomeIcon}
+              alt="home icon"
+              layout="fill"
+              objectFit="contain"
+              className="p-2"
+            />
+          </div>
+          <h1 className="text-2xl font-bold text-[#7E52A0]">FanFest Expo</h1>
+        </div>
+      </div>
+
       {/* Background Banner */}
       <div className="relative">
         <img src="/fanfest-bg.png" alt="FanFest Banner" className="w-full h-60 object-cover" />
@@ -33,11 +58,7 @@ const Welcome = () => {
       {/* Location Section */}
       <div className="mt-10 flex justify-center items-center gap-4">
         <span className="text-xl font-bold">Location</span>
-        {/* Arrow Icon */}
-        <svg className="w-6 h-6 fill-[#7E52A0]" viewBox="0 0 17 17">
-          <path d="M9 4l5 4.5-5 4.5v-3H3v-3h6V4z" />
-        </svg>
-        {/* Location Icon */}
+        <span className="text-2xl">➝</span>
         <div className="bg-[#7E52A0] w-14 h-14 rounded-xl flex items-center justify-center shadow-md">
           <svg className="w-8 h-8 fill-white" viewBox="0 0 24 24">
             <path d="M12 2C8.14 2 5 5.14 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.86-3.14-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z" />
@@ -54,5 +75,3 @@ const Welcome = () => {
 };
 
 export default Welcome;
-
-
