@@ -1,5 +1,6 @@
 import Titlebar from "../components/titlebar.js";
 
+
 export default function Login({}) {
   return (
     <div className="bg-[#F8F1FF] text-[#7E52A0] min-h-screen w-screen font-roboto-slab flex flex-col items-center">
