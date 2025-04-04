@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 import Hamburger from "../../public/hamburger.svg";
 import HomeIcon from "../../public/home-icon.svg";
@@ -16,7 +17,20 @@ import WishList from "../../public/WishList.svg";
 import FindRoute from "../../public/FindRoute.svg";
 
 export default function Navbar() {
+  const router = useRouter();
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const handleHomeClick = () => {
+    const userType = localStorage.getItem("userType");
+
+    if (userType === "login") {
+      router.push("/home_login");
+    } else if (userType === "signup") {
+      router.push("/home_signup");
+    } else {
+      router.push("/guest_home");
+    }
+  };
 
   const menuItems = [
     { icon: ConventionLayout, label: "Convention Layout", href: "/convention_layout" },
@@ -32,12 +46,16 @@ export default function Navbar() {
   return (
     <div className="w-full relative">
       {/* Navbar container */}
-      <div className="w-full bg-[#DECDF5]  p-4 flex justify-between items-center font-semibold shadow">
-        <div className="w-8 h-8 " />
+      <div className="w-full bg-[#DECDF5] p-4 flex justify-between items-center font-semibold shadow">
+        <div className="w-8 h-8" />
 
         {/* Center logo */}
         <div className="flex items-center justify-center">
-          <div className="relative w-8 h-8 mr-2">
+          <div
+            onClick={handleHomeClick}
+            className="relative w-8 h-8 mr-2 cursor-pointer"
+            title="Go to homepage"
+          >
             <Image
               src={Ellipse}
               alt="circle"
