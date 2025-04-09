@@ -1,4 +1,5 @@
 // components/navbar.js
+import { useRouter } from "next/router";
 import { useState, useContext } from "react";
 import { UserContext } from "../pages/_app"; // adjust import path as needed
 import Image from "next/image";
@@ -16,6 +17,7 @@ import WishList from "../../public/WishList.svg";
 import FindRoute from "../../public/FindRoute.svg";
 
 export default function Navbar() {
+  const router = useRouter();
   const { currentUser, setCurrentUser } = useContext(UserContext); 
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -24,7 +26,7 @@ export default function Navbar() {
   const homeLink =
     currentUser === "loggedIn"
       ? "/home_login"
-      : currentUser === "signUp"
+      : currentUser === "signedUp"
       ? "/home_signup"
       : "/guest_home";
 
@@ -44,6 +46,7 @@ export default function Navbar() {
   const handleLogout = () => {
     setCurrentUser("guest");
     setMenuOpen(false);
+    router.push("/welcome");
   };
 
   return (

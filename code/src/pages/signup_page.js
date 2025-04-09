@@ -1,11 +1,15 @@
 import { useRouter } from 'next/router';
 import Titlebar from "../components/titlebar.js";
 import Link from 'next/link';
+import { useContext } from "react";
+import { UserContext } from "./_app";
 
 export default function SignUp({}) {
   const router = useRouter();
+  const { setCurrentUser } = useContext(UserContext);
 
   const handleSignUp = () => {
+    setCurrentUser("signedUp");
     router.push('/home_signup');
   };
 

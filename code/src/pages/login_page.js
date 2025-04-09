@@ -1,13 +1,17 @@
 import { useRouter } from 'next/router';
 import Titlebar from "../components/titlebar.js";
 import Link from 'next/link';
+import { useContext } from "react";
+import { UserContext } from "./_app";
 
 export default function Login({}) {
   const router = useRouter();
+  const { setCurrentUser } = useContext(UserContext);
 
   const handleLogin = () => {
     // In a real application, you would perform authentication here.
     // For this example, we'll just navigate to the guest homepage.
+    setCurrentUser("loggedIn");
     router.push('/home_login');
   };
 
