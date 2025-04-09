@@ -25,7 +25,10 @@ export default function Titlebar() {
             className="p-2"
           />
         </div>
-        <h1 className="text-3xl font-bold">FanFest Expo</h1>
+          <h1 className="whitespace-nowrap text-xl md:text-3xl font-bold">
+            FanFest Expo
+          </h1>
+
       </div>
     </div>
   );

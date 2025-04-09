@@ -4,7 +4,6 @@ import Link from "next/link";
 
 import Hamburger from "../../public/hamburger.svg";
 import HomeIcon from "../../public/home-icon.svg";
-import Ellipse from "../../public/circle.svg";
 
 import ConventionLayout from "../../public/ConventionLayout.svg";
 import FindAmenities from "../../public/FindAmenities.svg";
@@ -32,33 +31,34 @@ export default function Navbar() {
   return (
     <div className="w-full relative">
       {/* Navbar container */}
-      <div className="w-full bg-[#DECDF5]  p-4 flex justify-between items-center font-semibold shadow">
-        <div className="w-8 h-8 " />
-
-        {/* Center logo */}
-        <div className="flex items-center justify-center">
-          <div className="relative w-8 h-8 mr-2">
-            <Image
-              src={Ellipse}
-              alt="circle"
-              layout="fill"
-              objectFit="contain"
-            />
+      <div className="w-full bg-[#DECDF5] p-4 flex items-center font-semibold shadow">
+        {/* Left column: Home icon */}
+        <div className="flex-1 flex items-center">
+          <div className="relative w-8 h-8 ml-2 rounded-full bg-[#f8edff]">
             <Image
               src={HomeIcon}
               alt="home"
               layout="fill"
               objectFit="contain"
+              objectPosition="left center"
               className="p-2"
             />
           </div>
-          <h1 className="text-3xl font-bold">FanFest Expo</h1>
         </div>
 
-        {/* Hamburger */}
-        <button onClick={() => setMenuOpen(!menuOpen)} className="w-8 h-8">
-          <Image src={Hamburger} alt="menu" className="h-8 w-8 hover:bg-[#d6c4f0]" />
-        </button>
+        {/* Middle column: Title, centered */}
+        <div className="flex-1 flex justify-center">
+          <h1 className="whitespace-nowrap text-xl md:text-3xl font-bold">
+            FanFest Expo
+          </h1>
+        </div>
+
+        {/* Right column: Hamburger */}
+        <div className="flex-1 flex justify-end">
+          <button onClick={() => setMenuOpen(!menuOpen)} className="w-8 h-8 mr-2">
+            <Image src={Hamburger} alt="menu" className="h-8 w-8 hover:bg-[#d6c4f0]" />
+          </button>
+        </div>
       </div>
 
       {/* Dropdown Menu */}
