@@ -37,34 +37,39 @@ export default function HomeSignup() {
 
       {/* User Info */}
       <div className="text-center mt-4 mb-4">
+        {/* Username */}
         <p className="text-md">@dandan23</p>
-        <p className="text-lg font-semibold">
-          Name:{" "}
+        
+        {/* Wrap “Name” label, name/input, and the button in the same flex container */}
+        <div className="flex items-center justify-center space-x-2 mt-2">
+          <span className="text-lg font-semibold">Name:</span>
+
           {isEditing ? (
             <input
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="bg-white border border-[#BF4D9D] px-2 py-1 rounded text-[#BF4D9D]"
+              className="bg-white border border-[#BF4D9D] px-2 py-1 rounded text-[#BF4D9D] text-lg font-semibold"
             />
           ) : (
-            <span className="text-[#BF4D9D]">{name}</span>
+            <span className="text-[#BF4D9D] text-lg font-semibold">{name}</span>
           )}
-        </p>
-        <button
-          className="bg-[#D6D7FB] hover:bg-[#c5c7f0] text-[#7E52A0] font-semibold px-4 py-1 rounded mt-1"
-          onClick={() => {
-            if (isEditing && name.trim() === "") {
-              alert("Username cannot be empty.");
-              return;
-            }
-            setIsEditing((prev) => !prev);
-          }}
-          
-        >
-          {isEditing ? "SAVE" : "EDIT"}
-        </button>
+
+          <button
+            className="bg-[#D6D7FB] hover:bg-[#c5c7f0] text-[#7E52A0] font-semibold px-4 py-1 rounded"
+            onClick={() => {
+              if (isEditing && name.trim() === "") {
+                alert("Username cannot be empty.");
+                return;
+              }
+              setIsEditing((prev) => !prev);
+            }}
+          >
+            {isEditing ? "SAVE" : "EDIT"}
+          </button>
+        </div>
       </div>
+
 
       {/* Schedule Tabs */}
       <div className="flex space-x-4 mb-4">
