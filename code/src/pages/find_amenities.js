@@ -14,11 +14,11 @@ export default function Amenities({}) {
       {/* Amenities List */}
       <div className="mt-8 w-[90%] max-w-md">
         <div className="flex items-center mb-4">
-          <img src="/information-desk.png" alt="Information Desk" className="w-10 h-10 mr-4" />
-          <a href="#" className="text-xl underline">Information Desk</a>
+          <img src="/info-desk.png" alt="Information Desk" className="w-15 h-15 mr-4" />
+          <a href="info_desks" className="text-xl underline">Information Desk</a>
         </div>
         <div className="flex items-center mb-4">
-          <img src="/atm.png" alt="ATM" className="w-15 h-15 mr-4" />
+          <img src="/amenity_icon/atm.png" alt="ATM" className="w-15 h-15 mr-4" />
           <a href="atm_list" className="text-xl underline">ATM</a>
         </div>
         <div className="flex items-center mb-4">
@@ -31,7 +31,7 @@ export default function Amenities({}) {
         </div>
         <div className="flex items-center mb-4">
           <img src="/water-station.png" alt="Water Stations" className="w-15 h-15 mr-4" />
-          <a href="waterstats_list" className="text-xl underline">Water Refill & Supply Stations</a>
+          <a href="waterstat_list" className="text-xl underline">Water Refill & Supply Stations</a>
         </div>
         <div className="flex items-center mb-4">
           <img src="/cos-prop-repair.png" alt="Cosplay & Prop Repair Station" className="w-15 h-15 mr-4" />

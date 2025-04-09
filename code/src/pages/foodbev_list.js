@@ -75,7 +75,7 @@ export default function FoodAndBeverageList() {
         </div>
 
         <p className="text-center text-[#C374E6] font-medium mb-4 underline">
-          View stall on the map (right) or select "Find Route"
+          View stall on the map or select "Find Route"
         </p>
 
         {/* Stall List and Map Layout */}
@@ -93,13 +93,13 @@ export default function FoodAndBeverageList() {
                 {/* You might want to add more descriptive text here if available */}
                 <Link
                   href={{
-                    pathname: "/find_route", // Assuming this is the correct route
+                    pathname: "/find_route",
                     query: {
                       title: stall.name,
                       mapref: stall.mapref,
                     },
                   }}
-                  className="mt-2 inline-block bg-gray-300 hover:bg-gray-400 text-black py-1 px-4 rounded text-sm font-semibold"
+                  className="mt-2 inline-block bg-fuchsia-300 hover:bg-gray-400 text-black py-1 px-4 rounded text-sm font-semibold"
                 >
                   Find Route
                 </Link>

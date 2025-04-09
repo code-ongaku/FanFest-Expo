@@ -5,7 +5,7 @@ import ExpandableMap from "../components/expandmap";
 
 const atmData = [
   {
-    title: "Exhibitor’s Hall A",
+    title: "Exhibitor's Hall A",
     floor: "Ground Floor, beside reception",
     label: "Ground Floor",
     mapref: "/image 4.png",
@@ -53,7 +53,7 @@ export default function ATMList() {
         <hr className="border-[#7E52A0] w-full mb-4" />
 
         <p className="text-center text-[#C374E6] font-medium mb-4 underline">
-          View ATM on the map (right) or select "Find Route"
+          View ATM on the map or select "Find Route"
         </p>
 
         <div className="w-full max-w-4xl space-y-8">
@@ -74,7 +74,7 @@ export default function ATMList() {
                     mapref: atm.mapref,
                   },
                 }}
-                className="mt-2 inline-block bg-gray-300 hover:bg-gray-400 text-black py-1 px-4 rounded text-sm font-semibold"
+                className="mt-2 inline-block bg-fuchsia-300 hover:bg-gray-400 text-black py-1 px-4 rounded text-sm font-semibold"
               >
                 Find Route
               </Link>

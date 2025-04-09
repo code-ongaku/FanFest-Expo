@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router';
+import Titlebar from "../components/titlebar.js";
 
 export default function GuestHome() {
   const router = useRouter();
@@ -7,9 +8,7 @@ export default function GuestHome() {
     <div className="bg-[#F8F1FF] text-[#7E52A0] min-h-screen font-roboto-slab flex flex-col items-center">
 
       {/* Top Header Bar styled like navbar */}
-      <div className="w-full bg-[#DECDF5] p-4 flex justify-center items-center font-semibold shadow mb-4">
-        <h1 className="text-3xl font-bold">FanFest Expo</h1>
-      </div>
+      <Titlebar />
 
       {/* Main Heading */}
       <h2 className="text-4xl font-bold text-center mb-2">Homepage</h2>

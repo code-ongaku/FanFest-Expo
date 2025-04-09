@@ -1,98 +1,102 @@
+import { useState } from "react";
 import Navbar from "../components/navbar.js";
 import Link from 'next/link'; // Import Link from Next.js
 
-export default function Events({}) {
+export default function Events() {
+  const [selectedCategory, setSelectedCategory] = useState("all");
+  const [selectedDay, setSelectedDay] = useState("all");
+
+  const events = [
+    { title: "Opening Ceremony", time: "Friday: 10 am - 12 pm", category: "Official Events", day: "Friday", link: "/opening-ceremony", bgColor: "bg-red-200" },
+    { title: "Arcade", time: "Friday: 10 am - 5 pm", category: "Gaming", day: "Friday", link: "/arcade", bgColor: "bg-green-200" },
+    { title: "FanFest Expo", time: "Saturday: 10 am - 12 pm", category: "Official Events", day: "Saturday", link: "/opening-ceremony", bgColor: "bg-red-200" },
+    { title: "Arcade", time: "Saturday: 10 am - 5 pm", category: "Gaming", day: "Saturday", link: "/arcade", bgColor: "bg-green-200" },
+    { title: "Awards Ceremony", time: "Sunday: 10 am - 12 pm", category: "Official Events", day: "Sunday", link: "/opening-ceremony", bgColor: "bg-red-200" },
+    { title: "Arcade", time: "Sunday: 10 am - 3 pm", category: "Gaming", day: "Sunday", link: "/arcade", bgColor: "bg-green-200" },
+
+    { title: "Contest A: Cosplay", time: "Friday: 11 am - 12 pm", category: "Contests", day: "Saturday", link: "/contest-A-cosplay", bgColor: "bg-yellow-200" },
+    { title: "Idol Fest", time: "Friday: 11:30 am - 1 pm", category: "Concerts", day: "Saturday", link: "/idol-fest", bgColor: "bg-purple-200" },
+
+    { title: "Contest B: Card Collections", time: "Friday: 12 pm - 1 pm", category: "Contests", day: "Sunday", link: "/contest-B-card-collections", bgColor: "bg-blue-200" },
+    { title: "Concert: Pop Rock", time: "Friday: 12 pm - 3 pm", category: "Concerts", day: "Sunday", link: "/concert-pop-rock", bgColor: "bg-cyan-200" },
+    
+    { title: "Contest C: Movie Props", time: "Friday: 1 pm - 2 pm", category: "Contests", day: "Friday", link: "/contest-c-movie-props", bgColor: "bg-pink-200" },
+  ];
+
+  const filteredEvents = events.filter(event => {
+    const categoryFilter = selectedCategory === "all" || event.category === selectedCategory;
+    const dayFilter = selectedDay === "All Events" || selectedDay === "all" || event.day === selectedDay;
+    return categoryFilter && dayFilter;
+  });
+
   return (
     <div className="bg-[#F8F1FF] text-[#7E52A0] min-h-screen w-screen font-roboto-slab flex flex-col items-center">
       <Navbar />
+      
       {/* Title Section */}
       <div className="text-center mt-8">
         <h1 className="text-[#7E52A0] font-roboto-slab text-4xl font-bold">Find Events</h1>
         <div className="w-[120%] border-b border-[#7E52A0] my-4 ml-[-12%]"></div>
       </div>
 
+      <p className="text-center text-[#C374E6] text-s font-medium mt-4 underline">
+        Select a Category to Filter by type
+      </p>
+
       {/* Categories Section */}
-      <div className="mt-8 w-[90%] max-w-md">
+      <div className="mt-4 w-[90%] max-w-md">
         <h2 className="text-xl font-bold mb-4">Categories</h2>
         <div className="grid grid-cols-3 gap-2">
-          <button className="bg-[#E9F0F8] rounded-full px-3 py-1 flex items-center justify-center">
-            <span className="w-3 h-3 rounded-full bg-red-500 mr-2"></span>
-            Official Events
-          </button>
-          <button className="bg-[#E9F0F8] rounded-full px-3 py-1 flex items-center justify-center">
-            <span className="w-3 h-3 rounded-full bg-blue-500 mr-2"></span>
-            Gaming
-          </button>
-          <button className="bg-[#E9F0F8] rounded-full px-3 py-1 flex items-center justify-center">
-            <span className="w-3 h-3 rounded-full bg-yellow-500 mr-2"></span>
-            Celebrities / Guests
-          </button>
-          <button className="bg-[#E9F0F8] rounded-full px-3 py-1 flex items-center justify-center">
-            <span className="w-3 h-3 rounded-full bg-green-500 mr-2"></span>
-            Contests
-          </button>
-          <button className="bg-[#E9F0F8] rounded-full px-3 py-1 flex items-center justify-center">
-            <span className="w-3 h-3 rounded-full bg-purple-500 mr-2"></span>
-            Concerts
-          </button>
-          <button className="bg-[#E9F0F8] rounded-full px-3 py-1 flex items-center justify-center">
-            <span className="w-3 h-3 rounded-full bg-cyan-500 mr-2"></span>
-            Other
-          </button>
+          {["Official Events", "Gaming", "Celebrities / Guests", "Contests", "Concerts", "Other"].map(category => (
+            <button
+              key={category}
+              className={`rounded-full px-3 py-1 flex items-center justify-center 
+                ${selectedCategory === category ? "bg-gray-300 text-gray-500" : "bg-[#E9F0F8]"} 
+                transition-all duration-300 ease-in-out`}
+              onClick={() => setSelectedCategory(category === selectedCategory ? "all" : category)}
+            >
+              <span 
+                className={`w-3 h-3 rounded-full 
+                  ${category === "Official Events" ? "bg-red-500" : 
+                    category === "Gaming" ? "bg-blue-500" : 
+                    category === "Celebrities / Guests" ? "bg-yellow-500" : 
+                    category === "Contests" ? "bg-green-500" : 
+                    category === "Concerts" ? "bg-purple-500" : 
+                    "bg-cyan-500"} 
+                  mr-2`}
+              ></span>
+              {category}
+            </button>
+          ))}
         </div>
 
+        <p className="text-center text-[#C374E6] text-s font-medium mt-9 underline">
+          Select to Filter Events by Day
+        </p>
+
         {/* Day Filters */}
-        <div className="mt-8 flex justify-around">
-          <button className="underline">All Events</button>
-          <button className="underline">Friday</button>
-          <button className="underline">Saturday</button>
-          <button className="underline">Sunday</button>
+        <div className="mt-4 flex justify-around">
+          {["All Events", "Friday", "Saturday", "Sunday"].map(day => (
+            <button
+              key={day}
+              className={`underline ${selectedDay === day ? "font-bold text-[#7E52A0]" : "text-gray-600"}`}
+              onClick={() => setSelectedDay(day === selectedDay ? "all" : day)}
+            >
+              {day}
+            </button>
+          ))}
         </div>
 
         {/* Events List */}
-        <div className="mt-8 max-h-[350px] overflow-y-auto"> {/* max-h and overflow-y for scrollbar */}
-            <Link href="/opening-ceremony" passHref>
-                <div className="bg-red-200 p-4 rounded-lg mb-2 cursor-pointer">
-                    <p className="font-bold">10 am - 12 pm</p>
-                    <p>Opening Ceremony</p>
-                </div>
+        <div className="mt-6 max-h-[350px] overflow-y-auto">
+          {filteredEvents.map((event, index) => (
+            <Link key={index} href={event.link} passHref>
+              <div className={`${event.bgColor} p-4 rounded-lg mb-2 cursor-pointer`}>
+                <p className="font-bold"> {event.title}</p>
+                <p> {event.time} </p>
+              </div>
             </Link>
-            <Link href="/arcade" passHref>
-                <div className="bg-green-200 p-4 rounded-lg mb-2 cursor-pointer">
-                    <p className="font-bold">10 am - 4 pm</p>
-                    <p>Arcade</p>
-                </div>
-            </Link>
-            <Link href="/contest-A-cosplay" passHref>
-                <div className="bg-yellow-200 p-4 rounded-lg mb-2 cursor-pointer">
-                    <p className="font-bold">11 am - 12 pm</p>
-                    <p>Contest A: Cosplay</p>
-                </div>
-            </Link>
-            <Link href="/idol-fest" passHref>
-                <div className="bg-purple-200 p-4 rounded-lg mb-2 cursor-pointer">
-                    <p className="font-bold">11:30 am - 1 pm</p>
-                    <p>Idol Fest</p>
-                </div>
-            </Link>
-            <Link href="/contest-B-card-collections" passHref>
-                <div className="bg-blue-200 p-4 rounded-lg mb-2 cursor-pointer">
-                    <p className="font-bold">12 pm - 1 pm</p>
-                    <p>Contest B: Card Collections</p>
-                </div>
-            </Link>
-            <Link href="/concert-pop-rock" passHref>
-                <div className="bg-cyan-200 p-4 rounded-lg mb-2 cursor-pointer">
-                    <p className="font-bold">12 pm - 3 pm</p>
-                    <p>Concert: Pop Rock</p>
-                </div>
-            </Link>
-            <Link href="/contest-c-movie-props" passHref>
-                <div className="bg-pink-200 p-4 rounded-lg cursor-pointer">
-                    <p className="font-bold">1 pm - 2 pm</p>
-                    <p>Contest C: Movie Props</p>
-                </div>
-            </Link>
+          ))}
         </div>
       </div>
     </div>

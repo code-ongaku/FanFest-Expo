@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Navbar from "../components/navbar";
+import ExpandableMap from "../components/expandmap";
 
 export default function RestroomsList() {
   const [filter, setFilter] = useState("all");
@@ -9,26 +10,31 @@ export default function RestroomsList() {
     {
       name: "North Wing Restroom - Level 1",
       type: "regular",
+      label: "1st Floor",
       mapref: "/maps/north_restroom.png",
     },
     {
       name: "South Hall Restroom - Level 1",
       type: "gender-neutral",
+      label: "1st Floor",
       mapref: "/maps/south_restroom.png",
     },
     {
       name: "Main Lobby Restroom",
       type: "regular",
+      label: "1st Floor",
       mapref: "/maps/lobby_restroom.png",
     },
     {
       name: "East Wing Restroom - Level 2",
       type: "gender-neutral",
+      label: "2nd Floor",
       mapref: "/maps/level2_gn_restroom.png",
     },
     {
       name: "South Wing Restroom - Level 2",
       type: "regular",
+      label: "2nd Floor",
       mapref: "/maps/level2_gn_restroom.png",
     },
   ];
@@ -44,10 +50,6 @@ export default function RestroomsList() {
       <div className="flex flex-col items-center mt-4 px-4">
         <h1 className="text-4xl font-bold mb-1">Restrooms</h1>
         <hr className="border-[#7E52A0] w-full mb-4" />
-
-        <p className="text-center text-[#C374E6] font-medium mb-4">
-          Select a restroom to view the route
-        </p>
 
         {/* Filter Buttons */}
         <div className="flex space-x-2 mb-4">
@@ -66,44 +68,54 @@ export default function RestroomsList() {
           ))}
         </div>
 
-        {/* Restroom List */}
-        <div className="border border-[#7E52A0] w-full max-w-md overflow-y-scroll max-h-60 mb-6">
-        {filteredRestrooms.map((room, index) => (
+        <p className="text-center text-[#C374E6] font-medium mb-4 underline">
+          View restroom on the map or select "Find Route"
+        </p>
+
+        {/* Restroom List and Map Layout */}
+        <div className="w-full max-w-4xl space-y-8">
+          {filteredRestrooms.map((room, index) => (
             <div
-            key={index}
-            className={`px-4 py-3 text-black text-lg font-medium ${
-                index < filteredRestrooms.length - 1 ? "border-b border-[#7E52A0]" : ""
-            }`}
+              key={index}
+              className="md:flex items-center justify-between bg-[#F2E6FA] p-6 rounded-lg shadow-md space-y-4 md:space-y-0 md:space-x-6"
             >
-            <Link
-                href={{
-                pathname: "/amen_route",
-                query: {
-                    title: room.name,
-                    mapref: room.mapref,
-                },
-                }}
-                className="text-xl underline flex items-center"
-            >
-                {/* Restroom Name */}
-                <span className="mr-2">{room.name}</span>
+              {/* Left: Text and Button */}
+              <div className="p-2 flex-1">
+                <h3 className="text-xl font-bold text-[#7E52A0] mb-1">
+                  {room.name}
+                </h3>
+                <Link
+                  href={{
+                    pathname: "/amen_route",
+                    query: {
+                      title: room.name,
+                      mapref: room.mapref,
+                    },
+                  }}
+                  className="mt-2 inline-block bg-fuchsia-300 hover:bg-gray-400 text-black py-1 px-4 rounded text-sm font-semibold"
+                >
+                  Find Route
+                </Link>
+              </div>
 
-                {/* Wheelchair Icon */}
-                <span role="img" aria-label="Accessible" title="Accessible">
-                ♿️
-                </span>
-            </Link>
+              {/* Right: Map and Expand Button */}
+              <div className="p-1 md:w-80 flex flex-col items-center">
+                <div className="w-full h-32 bg-white rounded flex items-center justify-center overflow-hidden">
+                  <img
+                    src={room.mapref}
+                    alt={room.name}
+                    className="object-contain max-h-full max-w-full"
+                  />
+                </div>
+                <div className="w-full mt-2 flex items-center justify-between">
+                  <p className="text-sm text-[#7E52A0] whitespace-nowrap">
+                    {room.label}
+                  </p>
+                  <ExpandableMap imageSrc={room.mapref} altText={room.name} />
+                </div>
+              </div>
             </div>
-        ))}
-        </div>
-
-
-        {/* Map Section Placeholder */}
-        <div className="w-full max-w-md bg-[#FBEFFF] p-4 rounded shadow text-center relative">
-          <div className="text-[#C374E6] font-medium mb-2">
-            All Restrooms - Map
-          </div>
-          <div className="text-gray-600 mt-8 mb-4 text-lg italic">map goes here</div>
+          ))}
         </div>
       </div>
     </div>
