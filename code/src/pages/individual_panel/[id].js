@@ -1,8 +1,12 @@
 import Navbar from "../../components/navbar.js";
+import Link from "next/link.js";
+import Map from "../../../public/individual_map.png";
+import Image from "next/image";
 
 export async function getStaticPaths() {
     const paths = [
-      { params: { id: '1' } }
+      { params: { id: 'cosplay_chess' } },
+      { params: { id: 'intro_to_cons' } }
     ];
   
     return {
@@ -13,37 +17,59 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
     // Hardcoded data
-    const vendors = {
-      1: { id:1, title:'Cosplay Chess', category:'Interactive', time:'11AM to 12PM', location:'TELUS 201' }
+    const panels = {
+        cosplay_chess: {
+            id: 'cosplay_chess',
+            title:'Cosplay Chess',
+            category:'Interactive',
+            time:'11AM to 12PM',
+            location:'Telus 201',
+            description: "Join us for a fun game of chess with cosplayers! Watch as your favorite characters come to life on the chessboard."
+        },
+        intro_to_cons: {
+            id: 'intro_to_cons',
+            title:'Intro to Cons',
+            category:'Informative',
+            time:'11:30AM to 1PM',
+            location:'Lower East Hall',
+            description: "Learn the basics of attending conventions! Tips on what to bring, how to navigate, and making the most of your experience."
+        }
     };
   
-    const vendor = vendors[params.id];
+    const panel = panels[params.id];
   
     return {
       props: {
-        vendor
+        panel
       },
     };
   }
 
-export default function Vendor({ vendor }) {
-  return (
-    <div className="bg-[#F8F1FF] text-[#7E52A0] min-h-screen w-screen font-roboto-slab flex flex-col items-center">
-        <Navbar/>
-        <h1 className="mt-7 font-bold text-4xl border-b-2 w-[90%] text-center pb-5">{vendor.title}</h1>
-        <div className="w-[90%] mt-5 font-bold">
-            <p>Category: {vendor.category}</p>
-            <p>Time: {vendor.time}</p>
-            <p>Location: {vendor.location}</p>
+  export default function Panel({ panel }) {
+    return (
+        <div className="bg-[#F8F1FF] text-[#7E52A0] min-h-screen w-screen font-roboto-slab flex flex-col items-center">
+            <Navbar/>
+            <h1 className="mt-7 font-bold text-4xl border-b-2 w-[90%] text-center pb-5">{panel.title}</h1>
+            <div className="w-[90%] mt-5 font-bold h-[200px]">
+                <p>Category: {panel.category}</p>
+                <p>Time: {panel.time}</p>
+                <p>Location: {panel.location}</p>
+                <p>Description: <br/>{panel.description}</p>
+            </div>
+            <div className="flex justify-between w-[90%] gap-4 mt-3 text-white">
+                <button className="py-1 bg-[#7E52A0] rounded max-w-[30%]">Add to Wishlist</button>
+                <button className="py-1 bg-[#7E52A0] rounded max-w-[30%]">Add to Schedule</button>
+            </div>
+            <div className="w-[90%] mt-3 gap-3 mb-7">
+                <div className="w-full aspect-square bg-white rounded relative">
+                    <Link href={`/find_route?destination=${encodeURIComponent(panel.location)}`}>
+                        <button className="absolute bottom-2 right-2 py-1 bg-[#7E52A0] rounded text-white px-3">
+                            Directions
+                        </button>
+                    </Link>
+                    <Image src={Map} alt="map" className="w-full aspect-square"/>
+                </div>
+            </div>
         </div>
-        <div className="flex flex-col items-end w-[90%] gap-2 mt-3">
-            <button className="py-1 bg-[#DECDF5] rounded w-[45%]">Add to wishlist</button>
-            <button className="py-1 bg-[#DECDF5] rounded w-[45%]">Add to Schedule</button>
-        </div>
-        <div className="w-[90%] mt-9 flex flex-col items-end mb-7">
-            <button className="py-1 bg-[#DECDF5] rounded w-[45%]">Expand Map</button>
-            <div className="w-full aspect-square bg-white">Pretend theres a map here</div>
-        </div>
-    </div>
-  );
+    );
 }
