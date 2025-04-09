@@ -1,52 +1,46 @@
 import { useState } from "react";
 import Link from "next/link";
-import Navbar from "../components/navbar";
-import ExpandableMap from "../components/expandmap";
+import Navbar from "../../components/navbar";
+import ExpandableMap from "../../components/expandmap";
 
-export default function FoodAndBeverageList() {
+export default function RestroomsList() {
   const [filter, setFilter] = useState("all");
 
-  const allStalls = [
+  const allRestrooms = [
     {
-      name: "Tim Hortons 🍩",
-      type: "beverage",
-      mapref: "/maps/tim_hortons.png",
-      label: "Ground Floor",
+      name: "North Wing Restroom - Level 1",
+      type: "regular",
+      label: "1st Floor",
+      mapref: "/maps/north_restroom.png",
     },
     {
-      name: "Uncle Tetsu's 🍰",
-      type: "food",
-      mapref: "/maps/uncle_tetsu.png",
-      label: "Ground Floor",
+      name: "South Hall Restroom - Level 1",
+      type: "gender-neutral",
+      label: "1st Floor",
+      mapref: "/maps/south_restroom.png",
     },
     {
-      name: "Mr. Pretzels 🥨",
-      type: "food",
-      mapref: "/maps/pretzels.png",
-      label: "Ground Floor",
+      name: "Main Lobby Restroom",
+      type: "regular",
+      label: "1st Floor",
+      mapref: "/maps/lobby_restroom.png",
     },
     {
-      name: "Bubble Tea Express 🍹",
-      type: "beverage",
-      mapref: "/maps/boba.png",
-      label: "Ground Floor",
+      name: "East Wing Restroom - Level 2",
+      type: "gender-neutral",
+      label: "2nd Floor",
+      mapref: "/maps/level2_gn_restroom.png",
     },
     {
-      name: "Katsu Bros 🍱",
-      type: "food",
-      mapref: "/maps/katsu_bros.png",
-      label: "First Floor",
-    },
-    {
-      name: "The Ramen Bar 🍜",
-      type: "food",
-      mapref: "/maps/coldbrew.png",
-      label: "First Floor",
+      name: "South Wing Restroom - Level 2",
+      type: "regular",
+      label: "2nd Floor",
+      mapref: "/maps/level2_gn_restroom.png",
     },
   ];
 
-  const filteredStalls = allStalls.filter(
-    (stall) => filter === "all" || stall.type === filter
+  const filteredRestrooms = allRestrooms.filter(
+    (r) => filter === "all" || r.type === filter
   );
 
   return (
@@ -54,12 +48,12 @@ export default function FoodAndBeverageList() {
       <Navbar />
 
       <div className="flex flex-col items-center mt-4 px-4">
-        <h1 className="text-4xl font-bold mb-1">Food & Beverage</h1>
+        <h1 className="text-4xl font-bold mb-1">Restrooms</h1>
         <hr className="border-[#7E52A0] w-full mb-4" />
 
         {/* Filter Buttons */}
         <div className="flex space-x-2 mb-4">
-          {["all", "food", "beverage"].map((type) => (
+          {["all", "regular", "gender-neutral"].map((type) => (
             <button
               key={type}
               className={`px-4 py-2 rounded ${
@@ -69,18 +63,18 @@ export default function FoodAndBeverageList() {
               }`}
               onClick={() => setFilter(type)}
             >
-              {type.charAt(0).toUpperCase() + type.slice(1)}
+              {type === "gender-neutral" ? "Gender Neutral" : type.charAt(0).toUpperCase() + type.slice(1)}
             </button>
           ))}
         </div>
 
         <p className="text-center text-[#C374E6] font-medium mb-4 underline">
-          View stall on the map or select "Find Route"
+          View restroom on the map or select "Find Route"
         </p>
 
-        {/* Stall List and Map Layout */}
+        {/* Restroom List and Map Layout */}
         <div className="w-full max-w-4xl space-y-8">
-          {filteredStalls.map((stall, index) => (
+          {filteredRestrooms.map((room, index) => (
             <div
               key={index}
               className="md:flex items-center justify-between bg-[#F2E6FA] p-6 rounded-lg shadow-md space-y-4 md:space-y-0 md:space-x-6"
@@ -88,15 +82,14 @@ export default function FoodAndBeverageList() {
               {/* Left: Text and Button */}
               <div className="p-2 flex-1">
                 <h3 className="text-xl font-bold text-[#7E52A0] mb-1">
-                  {stall.name}
+                  {room.name}
                 </h3>
-                {/* You might want to add more descriptive text here if available */}
                 <Link
                   href={{
-                    pathname: "/find_route",
+                    pathname: "/amen_route",
                     query: {
-                      title: stall.name,
-                      mapref: stall.mapref,
+                      title: room.name,
+                      mapref: room.mapref,
                     },
                   }}
                   className="mt-2 inline-block bg-fuchsia-300 hover:bg-gray-400 text-black py-1 px-4 rounded text-sm font-semibold"
@@ -109,16 +102,16 @@ export default function FoodAndBeverageList() {
               <div className="p-1 md:w-80 flex flex-col items-center">
                 <div className="w-full h-32 bg-white rounded flex items-center justify-center overflow-hidden">
                   <img
-                    src={stall.mapref}
-                    alt={stall.name}
+                    src={room.mapref}
+                    alt={room.name}
                     className="object-contain max-h-full max-w-full"
                   />
                 </div>
                 <div className="w-full mt-2 flex items-center justify-between">
                   <p className="text-sm text-[#7E52A0] whitespace-nowrap">
-                    {stall.label}
+                    {room.label}
                   </p>
-                  <ExpandableMap imageSrc={stall.mapref} altText={stall.name} />
+                  <ExpandableMap imageSrc={room.mapref} altText={room.name} />
                 </div>
               </div>
             </div>

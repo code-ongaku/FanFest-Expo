@@ -1,7 +1,7 @@
 // pages/atm_list.js
 import Link from "next/link"; // Not react-router-dom!
-import Navbar from "../components/navbar";
-import ExpandableMap from "../components/expandmap";
+import Navbar from "../../components/navbar";
+import ExpandableMap from "../../components/expandmap";
 
 const atmData = [
   {
