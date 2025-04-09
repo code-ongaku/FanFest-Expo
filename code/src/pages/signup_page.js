@@ -6,7 +6,7 @@ export default function SignUp({}) {
   const router = useRouter();
 
   const handleSignUp = () => {
-    router.push('/guest_home');
+    router.push('/home_signup');
   };
 
   return (

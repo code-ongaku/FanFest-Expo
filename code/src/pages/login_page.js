@@ -8,7 +8,7 @@ export default function Login({}) {
   const handleLogin = () => {
     // In a real application, you would perform authentication here.
     // For this example, we'll just navigate to the guest homepage.
-    router.push('/guest_home');
+    router.push('/home_login');
   };
 
   return (
