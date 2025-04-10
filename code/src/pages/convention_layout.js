@@ -5,13 +5,12 @@ export default function ConventionLayout() {
     <div className="bg-[#F8F1FF] text-[#7E52A0] min-h-screen font-roboto-slab flex flex-col overflow-y-auto">
       <Navbar />
 
-      {/* Title */}
-      <h1 className="text-4xl font-bold mt-6 mb-2 text-center px-4">
+      <div className="text-center mt-8">
+        <h1 className="text-[#7E52A0] font-roboto-slab text-4xl font-bold">
         View Venue Layout
-      </h1>
-
-      {/* Thin underline */}
-      <div className="border-t border-[#7E52A0] w-[90%] mx-auto my-2" />
+        </h1>
+      <div className="w-full max-w-[340px] mx-auto border-b border-[#7E52A0] my-4"></div>
+    </div>
 
       {/* Address */}
       <div className="text-center mb-6">

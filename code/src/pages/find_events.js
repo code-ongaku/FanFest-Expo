@@ -7,15 +7,15 @@ export default function Events() {
   const [selectedDay, setSelectedDay] = useState("all");
 
   const events = [
-    { title: "Opening Ceremony", time: "Friday: 10 am - 12 pm", category: "Official Events", day: "Friday", link: "/opening-ceremony", bgColor: "bg-red-200" },
-    { title: "Arcade", time: "Friday: 10 am - 5 pm", category: "Gaming", day: "Friday", link: "/arcade", bgColor: "bg-green-200" },
-    { title: "FanFest Expo", time: "Saturday: 10 am - 12 pm", category: "Official Events", day: "Saturday", link: "/opening-ceremony", bgColor: "bg-red-200" },
-    { title: "Arcade", time: "Saturday: 10 am - 5 pm", category: "Gaming", day: "Saturday", link: "/arcade", bgColor: "bg-green-200" },
-    { title: "Awards Ceremony", time: "Sunday: 10 am - 12 pm", category: "Official Events", day: "Sunday", link: "/opening-ceremony", bgColor: "bg-red-200" },
-    { title: "Arcade", time: "Sunday: 10 am - 3 pm", category: "Gaming", day: "Sunday", link: "/arcade", bgColor: "bg-green-200" },
+    { title: "Opening Ceremony", time: "Friday: 10 am - 12 pm", category: "Official Events", day: "Friday", link: "/individual_event/opening_ceremony", bgColor: "bg-red-200" },
+    { title: "Arcade", time: "Friday: 10 am - 4 pm", category: "Gaming", day: "Friday", link: "/individual_event/arcade", bgColor: "bg-green-200" },
+    { title: "FanFest Expo", time: "Saturday: 10 am - 12 pm", category: "Official Events", day: "Saturday", link: "/ceremony", bgColor: "bg-red-200" },
+    { title: "Arcade", time: "Saturday: 10 am - 4 pm", category: "Gaming", day: "Saturday", link: "/individual_event/arcade", bgColor: "bg-green-200" },
+    { title: "Awards Ceremony", time: "Sunday: 10 am - 12 pm", category: "Official Events", day: "Sunday", link: "/ceremony", bgColor: "bg-red-200" },
+    { title: "Arcade", time: "Sunday: 10 am - 4 pm", category: "Gaming", day: "Sunday", link: "/individual_event/arcade", bgColor: "bg-green-200" },
 
     { title: "Contest A: Cosplay", time: "Friday: 11 am - 12 pm", category: "Contests", day: "Saturday", link: "/contest-A-cosplay", bgColor: "bg-yellow-200" },
-    { title: "Idol Fest", time: "Friday: 11:30 am - 1 pm", category: "Concerts", day: "Saturday", link: "/idol-fest", bgColor: "bg-purple-200" },
+    { title: "Idol Fest", time: "Friday: 11:30 am - 1 pm", category: "Concerts", day: "Saturday", link: "/individual_event/idol_fest", bgColor: "bg-purple-200" },
 
     { title: "Contest B: Card Collections", time: "Friday: 12 pm - 1 pm", category: "Contests", day: "Sunday", link: "/contest-B-card-collections", bgColor: "bg-blue-200" },
     { title: "Concert: Pop Rock", time: "Friday: 12 pm - 3 pm", category: "Concerts", day: "Sunday", link: "/concert-pop-rock", bgColor: "bg-cyan-200" },

@@ -86,7 +86,7 @@ export default function RestroomsList() {
                 </h3>
                 <Link
                   href={{
-                    pathname: "/amen_route",
+                    pathname: "/find_route",
                     query: {
                       title: room.name,
                       mapref: room.mapref,

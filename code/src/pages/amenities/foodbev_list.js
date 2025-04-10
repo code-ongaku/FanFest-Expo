@@ -90,7 +90,6 @@ export default function FoodAndBeverageList() {
                 <h3 className="text-xl font-bold text-[#7E52A0] mb-1">
                   {stall.name}
                 </h3>
-                {/* You might want to add more descriptive text here if available */}
                 <Link
                   href={{
                     pathname: "/find_route",

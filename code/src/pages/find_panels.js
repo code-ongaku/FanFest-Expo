@@ -9,8 +9,8 @@ export default function Panels() {
   const panels = [
     { title: "Balancing Work and Expo", time: "Friday: 10 am - 12 pm", category: "Informative", day: "Friday", link: "/balancingWorkAndExpo", bgColor: "bg-cyan-100" },
     { title: "Guide to Cosplay", time: "Friday: 10 am - 11am", category: "Informative", day: "Friday", link: "/guideToCosplay", bgColor: "bg-cyan-100" },
-    { title: "Cosplay Chess", time: "Saturday: 11 am - 12 pm", category: "Interactive", day: "Saturday", link: "/cosplayChess", bgColor: "bg-green-200" },
-    { title: "Intro to Cons", time: "Saturday: 11:30 am - 1 pm", category: "Informative", day: "Saturday", link: "/introToCons", bgColor: "bg-cyan-100" },
+    { title: "Cosplay Chess", time: "Saturday: 11 am - 12 pm", category: "Interactive", day: "Saturday", link: "/individual_panel/cosplay_chess", bgColor: "bg-green-200" },
+    { title: "Intro to Cons", time: "Saturday: 11:30 am - 1 pm", category: "Informative", day: "Saturday", link: "/individual_panel/intro_to_cons", bgColor: "bg-cyan-100" },
     { title: "Idol Festival Crash Course", time: "Sunday: 12 pm - 1 pm", category: "Interactive", day: "Sunday", link: "/idolFestivalCrashCourse", bgColor: "bg-green-200" },
     { title: "Make Your Own Cosplay", time: "Sunday: 12 pm - 2 pm", category: "Interactive", day: "Sunday", link: "/makeYourOwnCosplay", bgColor: "bg-green-200" },
     { title: "Wheel of Anime", time: "Friday: 1 pm - 2 pm", category: "Interactive", day: "Saturday", link: "/wheelOfAnime", bgColor: "bg-green-200" }
