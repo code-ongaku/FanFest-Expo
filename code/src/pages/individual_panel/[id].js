@@ -2,6 +2,9 @@ import Navbar from "../../components/navbar.js";
 import Link from "next/link.js";
 import Map from "../../../public/individual_map.png";
 import Image from "next/image";
+import { useState } from "react";
+import WishlistModal from "../../components/wishlistmodal.js";
+import ScheduleModal from "../../components/schedulemodal.js";
 
 export async function getStaticPaths() {
     const paths = [
@@ -46,6 +49,14 @@ export async function getStaticProps({ params }) {
   }
 
   export default function Panel({ panel }) {
+    const [wishlistModal, setWishlistModal] = useState(false);
+    const openWishlistModal = () => {
+        setWishlistModal(() => !wishlistModal);
+    }
+    const [scheduleModal, setScheduleModal] = useState(false);
+    const openScheduleModal = () => {
+        setScheduleModal(() => !scheduleModal);
+    }
     return (
         <div className="bg-[#F8F1FF] text-[#7E52A0] min-h-screen w-screen font-roboto-slab flex flex-col items-center">
             <Navbar/>
@@ -57,8 +68,10 @@ export async function getStaticProps({ params }) {
                 <p>Description: <br/>{panel.description}</p>
             </div>
             <div className="flex justify-between w-[90%] gap-4 mt-3 text-white">
-                <button className="py-1 bg-[#7E52A0] rounded max-w-[30%]">Add to Wishlist</button>
-                <button className="py-1 bg-[#7E52A0] rounded max-w-[30%]">Add to Schedule</button>
+                <button onClick={openWishlistModal} className="py-1 bg-[#7E52A0] rounded max-w-[30%]">Add to Wishlist</button>
+                {wishlistModal && <WishlistModal openWishlistModal={openWishlistModal} params={panel}/>}
+                <button onClick={openScheduleModal} className="py-1 bg-[#7E52A0] rounded max-w-[30%]">Add to Schedule</button>
+                {scheduleModal && <ScheduleModal openScheduleModal={openScheduleModal} params={panel}/>}
             </div>
             <div className="w-[90%] mt-3 gap-3 mb-7">
                 <div className="w-full aspect-square bg-white rounded relative">
