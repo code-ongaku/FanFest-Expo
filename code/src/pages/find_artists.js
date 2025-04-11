@@ -7,6 +7,7 @@ export default function Artists() {
 
   const artists = [
     { title: "Charlie's Bakery", day: "Friday", link: "/charliesBakery", bgColor: "bg-green-200" },
+    { title: "Sydney's Knitwear", day: "Saturday", link: "/sydneysKnitwear", bgColor: "bg-yellow-200" },
     { title: "Jack's Candles", day: "Saturday", link: "/jacksCandles", bgColor: "bg-yellow-200" },
     { title: "Emily's Sweater Bonanza", day: "Sunday", link: "/emilysSweater", bgColor: "bg-orange-100" }
   ];
@@ -29,8 +30,12 @@ export default function Artists() {
       {/* Categories Section */}
       <div className="mt-4 w-[90%] max-w-md">
 
-        <p className="text-center text-[#C374E6] text-s font-medium mt-9 underline">
+        {/* <p className="text-center text-[#C374E6] text-s font-medium mt-9 underline">
           Select to Filter Artists by Day
+        </p> */}
+
+        <p className="text-left text-[#C374E6] text-s font-medium mt-4 underline">
+          Filter by Day
         </p>
 
         {/* Day Filters */}

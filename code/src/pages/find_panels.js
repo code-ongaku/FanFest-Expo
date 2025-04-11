@@ -32,13 +32,13 @@ export default function Panels() {
         <div className="w-[120%] border-b border-[#7E52A0] my-4 ml-[-12%]"></div>
       </div>
 
-      <p className="text-center text-[#C374E6] text-s font-medium mt-4 underline">
+      {/* <p className="text-center text-[#C374E6] text-s font-medium mt-4 underline">
         Select a Category to Filter by type
-      </p>
+      </p> */}
 
       {/* Categories Section */}
       <div className="mt-4 w-[90%] max-w-md">
-        <h2 className="text-xl font-bold mb-4">Categories</h2>
+        <h2 className="text-lg font-bold mb-4">Filter by Categories</h2>
         <div className="grid grid-cols-3 gap-2">
           {["Interactive", "Informative"].map(category => (
             <button
@@ -58,12 +58,12 @@ export default function Panels() {
           ))}
         </div>
 
-        <p className="text-center text-[#C374E6] text-s font-medium mt-9 underline">
+        {/* <p className="text-center text-[#C374E6] text-s font-medium mt-9 underline">
           Select to Filter Panels by Day
-        </p>
+        </p> */}
 
         {/* Day Filters */}
-        <div className="mt-4 flex justify-around">
+        <div className="mt-8 flex justify-around">
           {["All Panels", "Friday", "Saturday", "Sunday"].map(day => (
             <button
               key={day}

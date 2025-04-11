@@ -39,13 +39,13 @@ export default function Events() {
         <div className="w-[120%] border-b border-[#7E52A0] my-4 ml-[-12%]"></div>
       </div>
 
-      <p className="text-center text-[#C374E6] text-s font-medium mt-4 underline">
-        Select a Category to Filter by type
-      </p>
+      {/* <p className="text-center text-[#C374E6] text-s font-medium mt-1 underline">
+        Filter by Category or Day
+      </p> */}
 
       {/* Categories Section */}
-      <div className="mt-4 w-[90%] max-w-md">
-        <h2 className="text-xl font-bold mb-4">Categories</h2>
+      <div className="mt-2 w-[90%] max-w-md">
+        <h2 className="text-lg font-bold mb-4">Filter by Categories</h2>
         <div className="grid grid-cols-3 gap-2">
           {["Official Events", "Gaming", "Celebrities / Guests", "Contests", "Concerts", "Other"].map(category => (
             <button
@@ -70,12 +70,12 @@ export default function Events() {
           ))}
         </div>
 
-        <p className="text-center text-[#C374E6] text-s font-medium mt-9 underline">
+        {/* <p className="text-center text-[#C374E6] text-s font-medium mt-9 underline">
           Select to Filter Events by Day
-        </p>
+        </p> */}
 
         {/* Day Filters */}
-        <div className="mt-4 flex justify-around">
+        <div className="mt-8 flex justify-around">
           {["All Events", "Friday", "Saturday", "Sunday"].map(day => (
             <button
               key={day}

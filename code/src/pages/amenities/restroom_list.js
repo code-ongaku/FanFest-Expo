@@ -68,9 +68,9 @@ export default function RestroomsList() {
           ))}
         </div>
 
-        <p className="text-center text-[#C374E6] font-medium mb-4 underline">
+        {/* <p className="text-center text-[#C374E6] font-medium mb-4 underline">
           View restroom on the map or select "Find Route"
-        </p>
+        </p> */}
 
         {/* Restroom List and Map Layout */}
         <div className="w-full max-w-4xl space-y-8">
