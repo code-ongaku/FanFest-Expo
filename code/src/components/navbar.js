@@ -15,6 +15,7 @@ import FindVendors from "../../public/FindVendors.svg";
 import MySchedule from "../../public/MySchedule.svg";
 import WishList from "../../public/WishList.svg";
 import FindRoute from "../../public/FindRoute.svg";
+import FindArtists from "../../public/FindArtists.png";
 
 export default function Navbar() {
   const router = useRouter();
@@ -38,6 +39,7 @@ export default function Navbar() {
     { icon: FindVendors, label: "Find Vendors", href: "/find_vendors" },
     { icon: MySchedule, label: "My Schedule", href: "/schedule" },
     { icon: WishList, label: "Wishlist", href: "/wishlist" },
+    { icon: FindArtists, label: "Find Artists", href: "/find_artists"},
     { icon: FindRoute, label: "Find Route", href: "/find_route" },
   ];
 

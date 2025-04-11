@@ -82,10 +82,10 @@ export default function GuestHome() {
         
         {/* Find Artist */}
         <div
-          onClick={() => router.push('/find_artist')}
+          onClick={() => router.push('/find_artists')}
           className="cursor-pointer"
         >
-          <img src="/FindArtist.png" alt="Find Artist" className="w-20 h-20 mx-auto mb-2" />
+          <img src="/FindArtists.png" alt="Find Artist" className="w-20 h-20 mx-auto mb-2" />
           <p><u>Find Artist</u></p>
         </div>
 
