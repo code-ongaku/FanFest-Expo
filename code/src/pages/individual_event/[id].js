@@ -27,7 +27,7 @@ export async function getStaticProps({ params }) {
         id: 'arcade',
         title:'Arcade',
         category:'Gaming',
-        time:'Every day 10AM to 5PM',
+        time:'Every day 10AM to 4PM',
         location:'Lower East Hall',
         description: "Join us for a day of gaming fun! Play classic arcade games and compete with friends for high scores. Prizes for top players!"
       },
@@ -43,7 +43,7 @@ export async function getStaticProps({ params }) {
         id: 'idol_fest',
         title:'Idol Fest',
         category:'Concerts',
-        time:'Saturday 11:30AM to 1PM',
+        time:'Friday 11:30AM to 1PM',
         location:'Main Stage',
         description: "Enjoy a showcase of idol performances from various groups! Cheer for your favorites and enjoy the music!"
       },
