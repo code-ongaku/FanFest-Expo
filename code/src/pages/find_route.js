@@ -114,7 +114,7 @@ export default function FindRoute() {
             />
           </div>
           <input
-            className="bg-white text-2xl w-full rounded-full pl-10 pr-4 py-2"
+            className="bg-white text-2xl w-full rounded-full pl-10 pr-10 py-2 truncate"
             type="text"
             placeholder="Start Location"
             value={startInput}
@@ -152,7 +152,7 @@ export default function FindRoute() {
             />
           </div>
           <input
-            className="bg-white text-2xl w-full rounded-full pl-10 pr-4 py-2"
+            className="bg-white text-2xl w-full rounded-full pl-10 pr-10 py-2 truncate"
             type="text"
             placeholder="End Location"
             value={endInput}
