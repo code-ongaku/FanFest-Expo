@@ -6,9 +6,9 @@ export default function Artists() {
   const [selectedDay, setSelectedDay] = useState("all");
 
   const artists = [
-    { title: "Charlie's Bakery", day: "Friday", link: "/charliesBakery", bgColor: "bg-green-200" },
+    { title: "Charlie's Bakery", day: "Friday", link: "/individual_artist/charlies_bakery", bgColor: "bg-green-200" },
     { title: "Sydney's Knitwear", day: "Saturday", link: "/sydneysKnitwear", bgColor: "bg-yellow-200" },
-    { title: "Jack's Candles", day: "Saturday", link: "/jacksCandles", bgColor: "bg-yellow-200" },
+    { title: "Jack's Candles", day: "Saturday", link: "/individual_artist/jacks_candles", bgColor: "bg-yellow-200" },
     { title: "Emily's Sweater Bonanza", day: "Sunday", link: "/emilysSweater", bgColor: "bg-orange-100" }
   ];
 
