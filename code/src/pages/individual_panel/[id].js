@@ -10,7 +10,8 @@ import Cancel from "../../../public/cancel.svg";
 export async function getStaticPaths() {
     const paths = [
       { params: { id: 'cosplay_chess' } },
-      { params: { id: 'intro_to_cons' } }
+      { params: { id: 'intro_to_cons' } },
+      { params: { id: 'guide_to_cosplay' } },
     ];
   
     return {
