@@ -63,25 +63,35 @@ export default function Schedule({}) {
             <div className="bg-[#DECDF5] border-1 border-[#7E52A0] rounded-l-lg h-14 pl-4 flex items-center">
               <p>3 pm</p>
             </div>
+            <div className="bg-[#DECDF5] border-1 border-[#7E52A0] rounded-l-lg h-14 pl-4 flex items-center">
+              <p>4 pm</p>
+            </div>
+            <div className="bg-[#DECDF5] border-1 border-[#7E52A0] rounded-l-lg h-14 pl-4 flex items-center">
+              <p>5 pm</p>
+            </div>
+            <div className="bg-[#DECDF5] border-1 border-[#7E52A0] rounded-l-lg h-14 pl-4 flex items-center">
+              <p>6 pm</p>
+            </div>
           </div>
 
           {selectedDay == "Friday" && (
             <div className="col-span-3">
-              <Link href="/opening-ceremony" passHref>
-                <div className="bg-red-200 pl-4 rounded-r-lg cursor-pointer h-14 flex items-center">
-                  <p>Opening Ceremony</p>
+              <div className="h-14"></div>
+              <Link href="/individual_event/arcade" passHref>
+                <div className="bg-red-200 pl-4 rounded-r-lg cursor-pointer h-28 flex items-center">
+                  <p>Arcade</p>
                 </div>
               </Link>
               <div className="h-14"></div>
               <Link href="/contest-A-cosplay" passHref>
-                <div className="bg-yellow-200 rounded-r-lg cursor-pointer h-14 pl-4 flex items-center">
-                  <p>Contest A: Cosplay</p>
+                <div className="bg-yellow-200 rounded-r-lg cursor-pointer h-28 pl-4 flex items-center">
+                  <p>Make Your Own Cosplay</p>
                 </div>
               </Link>
               <div className="h-14"></div>
               <Link href="/makeYourOwnCosplay" passHref>
                 <div className="bg-green-200 rounded-r-lg cursor-pointer h-14 pl-4 flex items-center">
-                  <p>Make Your Own Cosplay</p>
+                  <p>Concert: Pop Rock</p>
                 </div>
               </Link>
               <div className="h-14"></div>
@@ -93,21 +103,55 @@ export default function Schedule({}) {
               </Link>
             </div>
           )}
+
+          {selectedDay == "Saturday" && (
+            <div className="col-span-3">
+              <div className="h-28"></div>
+              <Link href="/opening-ceremony" passHref>
+                <div className="bg-green-200 pl-4 rounded-r-lg cursor-pointer h-14 flex items-center">
+                  <p>Guide to Cosplay</p>
+                </div>
+              </Link>
+              <div className="h-14"></div>
+              <Link href="/individual_events/intro_to_cons" passHref>
+                <div className="bg-orange-200 rounded-r-lg cursor-pointer h-28 pl-4 flex items-center">
+                  <p>Intro to Cons</p>
+                </div>
+              </Link>
+            </div>
+          )}
+
+          {selectedDay == "Sunday" && (
+            <div className="col-span-3">
+              <div className="h-28"></div>
+              <Link href="/opening-ceremony" passHref>
+                <div className="bg-green-200 pl-4 rounded-r-lg cursor-pointer h-14 flex items-center">
+                  <p>Awards Ceremony</p>
+                </div>
+              </Link>
+              <div className="h-42"></div>
+              <Link href="/contest-A-cosplay" passHref>
+                <div className="bg-cyan-200 rounded-r-lg cursor-pointer h-28 pl-4 flex items-center">
+                  <p>Wheel of Anime</p>
+                </div>
+              </Link>
+            </div>
+          )}
         </div>
       </div>
 
       {isDownloaded && (
-        <div className="fixed top-0 left-0 z-1 bg-stone-100 text-stone-900 border-stone-900 border-1 rounded flex flex-row">
+        <div className={`fixed ${isSaved == false ? "bottom-15" : "bottom-27"} center-0 text-2xl z-1 bg-stone-100 text-red-500 border-red-300 border-4 rounded flex flex-row`}>
           <p>Schedule Downloaded.</p>
-            <Image src={Cancel} className="h-6 w-6 bg-red-100"
+            <Image src={Cancel} className="h-8 w-8 bg-red-100"
               onClick={() => setDownloaded(false) }/>
         </div>
       )}
 
       {isSaved && (
-        <div className="fixed top-0 left-0 z-1 bg-stone-100 text-stone-900 border-stone-900 border-1 rounded flex flex-row">
+        <div className="fixed bottom-15 center-0 text-2xl z-1 bg-stone-100 text-red-500 border-red-300 border-4 rounded flex flex-row">
           <p>Schedule Saved.</p>
-            <Image src={Cancel} className="h-6 w-6 bg-red-100"
+            <Image src={Cancel} className="h-8 w-8 bg-red-100"
               onClick={() => setSaved(false) }/>
         </div>
       )}
