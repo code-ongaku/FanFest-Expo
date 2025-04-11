@@ -9,8 +9,8 @@ import Cancel from "../../../public/cancel.svg";
 
 export async function getStaticPaths() {
     const paths = [
-      { params: { id: 'arcade' } },
-      { params: { id: 'opening_ceremony' } }
+      { params: { id: 'charlies_bakery' } },
+      { params: { id: 'jacks_candles' } }
     ];
   
     return {
@@ -109,21 +109,6 @@ export async function getStaticProps({ params }) {
                         alt="close" 
                         className="h-6 w-6 rounded"
                         onClick={() => setAddedSchedule(false)}
-                      />
-                    </div>
-                  </div>
-                )}
-                <button onClick={openScheduleModal} className="py-1 bg-[#7E52A0] rounded max-w-[30%]">Add to Schedule</button>
-                {scheduleModal && <ScheduleModal openScheduleModal={openScheduleModal} isAddedSchedule={handleAddToSchedule} params={artist}/>}
-                {isAddedSchedule && (
-                    <div className="fixed top-15 left-1/2 transform -translate-x-1/2 z-50 bg-stone-100 text-stone-900 border border-stone-900 rounded flex justify-between items-center px-2 whitespace-nowrap">
-                    <Link href="/schedule" >Added! Click to go to Schedule.</Link>
-                    <div className="h-6 w-6 bg-purple-100 flex items-center justify-center">
-                      <Image 
-                        src={Cancel} 
-                        alt="close" 
-                        className="h-6 w-6 rounded"
-                        onClick={() => setAdded(false)}
                       />
                     </div>
                   </div>
