@@ -1,11 +1,9 @@
-import { useRouter } from "next/router"
 import Backdrop from "./backdrop"
 
-export default function WishlistModal({openWishlistModal, params}) {
-    const router = useRouter()
+export default function WishlistModal({openWishlistModal, isAddedWishlist, params}) {
     const addToWishlist = () => {
         openWishlistModal()
-        router.push('/wishlist')
+        isAddedWishlist()
     }
     return(
         <Backdrop handleClick={openWishlistModal}>

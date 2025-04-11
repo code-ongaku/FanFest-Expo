@@ -1,11 +1,9 @@
-import { useRouter } from "next/router"
 import Backdrop from "./backdrop"
 
-export default function ScheduleModal({openScheduleModal, params}) {
-    const router = useRouter()
+export default function ScheduleModal({openScheduleModal, isAddedSchedule, params}) {
     const addToSchedule = () => {
         openScheduleModal()
-        router.push('/schedule')
+        isAddedSchedule()
     }
     return(
         <Backdrop handleClick={openScheduleModal}>

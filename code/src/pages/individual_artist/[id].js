@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useState } from "react";
 import WishlistModal from "../../components/wishlistmodal.js";
 import ScheduleModal from "../../components/schedulemodal.js";
+import Cancel from "../../../public/cancel.svg";
 
 export async function getStaticPaths() {
     const paths = [
@@ -57,6 +58,20 @@ export async function getStaticProps({ params }) {
     const openScheduleModal = () => {
         setScheduleModal(() => !scheduleModal);
     }
+    const [isAddedWishlist, setAddedWishlist] = useState(false);
+    const handleAddToWishlist = () => {
+        setAddedWishlist(true);
+        setTimeout(() => {
+            setAddedWishlist(false);
+        }, 10000);
+    }
+    const [isAddedSchedule, setAddedSchedule] = useState(false);
+    const handleAddToSchedule = () => {
+        setAddedSchedule(true);
+        setTimeout(() => {
+            setAddedSchedule(false);
+        }, 10000);
+    }
     return (
         <div className="bg-[#F8F1FF] text-[#7E52A0] min-h-screen w-screen font-roboto-slab flex flex-col items-center">
             <Navbar/>
@@ -69,9 +84,50 @@ export async function getStaticProps({ params }) {
             </div>
             <div className="flex justify-between w-[90%] gap-4 mt-3 text-white">
                 <button onClick={openWishlistModal} className="py-1 bg-[#7E52A0] rounded max-w-[30%]">Add to Wishlist</button>
-                {wishlistModal && <WishlistModal openWishlistModal={openWishlistModal} params={artist}/>}
+                {wishlistModal && <WishlistModal openWishlistModal={openWishlistModal} isAddedWishlist={handleAddToWishlist} params={event}/>}
+                {isAddedWishlist && (
+                    <div className="fixed top-15 left-1/2 transform -translate-x-1/2 z-50 bg-stone-100 text-stone-900 border border-stone-900 rounded flex justify-between items-center px-2 whitespace-nowrap">
+                    <Link href="/wishlist" >Added! Click to go to Wishlist.</Link>
+                    <div className="h-6 w-6 bg-purple-100 flex items-center justify-center">
+                      <Image 
+                        src={Cancel} 
+                        alt="close" 
+                        className="h-6 w-6 rounded"
+                        onClick={() => setAddedSchedule(false)}
+                      />
+                    </div>
+                  </div>
+                )}
                 <button onClick={openScheduleModal} className="py-1 bg-[#7E52A0] rounded max-w-[30%]">Add to Schedule</button>
-                {scheduleModal && <ScheduleModal openScheduleModal={openScheduleModal} params={artist}/>}
+                {scheduleModal && <ScheduleModal openScheduleModal={openScheduleModal} isAddedSchedule={handleAddToSchedule} params={event}/>}
+                {isAddedSchedule && (
+                    <div className="fixed top-15 left-1/2 transform -translate-x-1/2 z-50 bg-stone-100 text-stone-900 border border-stone-900 rounded flex justify-between items-center px-2 whitespace-nowrap">
+                    <Link href="/schedule" >Added! Click to go to Schedule.</Link>
+                    <div className="h-6 w-6 bg-purple-100 flex items-center justify-center">
+                      <Image 
+                        src={Cancel} 
+                        alt="close" 
+                        className="h-6 w-6 rounded"
+                        onClick={() => setAddedSchedule(false)}
+                      />
+                    </div>
+                  </div>
+                )}
+                <button onClick={openScheduleModal} className="py-1 bg-[#7E52A0] rounded max-w-[30%]">Add to Schedule</button>
+                {scheduleModal && <ScheduleModal openScheduleModal={openScheduleModal} isAddedSchedule={handleAddToSchedule} params={artist}/>}
+                {isAddedSchedule && (
+                    <div className="fixed top-15 left-1/2 transform -translate-x-1/2 z-50 bg-stone-100 text-stone-900 border border-stone-900 rounded flex justify-between items-center px-2 whitespace-nowrap">
+                    <Link href="/schedule" >Added! Click to go to Schedule.</Link>
+                    <div className="h-6 w-6 bg-purple-100 flex items-center justify-center">
+                      <Image 
+                        src={Cancel} 
+                        alt="close" 
+                        className="h-6 w-6 rounded"
+                        onClick={() => setAdded(false)}
+                      />
+                    </div>
+                  </div>
+                )}
             </div>
             <div className="w-[90%] mt-3 gap-3 mb-7">
                 <div className="w-full aspect-square bg-white rounded relative">
