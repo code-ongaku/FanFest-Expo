@@ -2,6 +2,23 @@ import { useState } from "react";
 import Navbar from "../components/navbar.js";
 import Link from 'next/link'; // Import Link from Next.js
 
+// Helper to map each category to a background color
+function vendorCategoryToColor(cat) {
+  switch (cat) {
+    case "Snacks":
+      return "bg-red-300";
+    case "Books":
+      return "bg-orange-300";
+    case "Merch":
+      return "bg-yellow-300";
+    case "Apparel":
+      return "bg-green-300";
+    default:
+      // "Other" or anything else
+      return "bg-blue-300";
+  }
+}
+
 export default function Vendors() {
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [selectedDay, setSelectedDay] = useState("all");
@@ -15,9 +32,12 @@ export default function Vendors() {
     { title: "PosterZ", category: "Merch", day: "Saturday", link: "/posterz", bgColor: "bg-yellow-200" }
   ];
 
+  // Filter logic
   const filteredVendors = vendors.filter(vendor => {
-    const categoryFilter = selectedCategory === "all" || vendor.category === selectedCategory;
-    const dayFilter = selectedDay === "All Vendors" || selectedDay === "all" || vendor.day === selectedDay;
+    const categoryFilter =
+      selectedCategory === "all" || vendor.category === selectedCategory;
+    const dayFilter =
+      selectedDay === "All Vendors" || selectedDay === "all" || vendor.day === selectedDay;
     return categoryFilter && dayFilter;
   });
 
@@ -40,26 +60,25 @@ export default function Vendors() {
       <div className="mt-2 w-[90%] max-w-md">
         <h2 className="text-lg font-bold mb-4">Filter by Categories</h2>
         <div className="grid grid-cols-3 gap-2">
-          {["Snacks", "Books", "Merch", "Apparel", "Other"].map(category => (
-            <button
-              key={category}
-              className={`rounded-full px-3 py-1 flex items-center justify-center 
-                ${selectedCategory === category ? "bg-gray-300 text-gray-500" : "bg-[#E9F0F8]"} 
-                transition-all duration-300 ease-in-out`}
-              onClick={() => setSelectedCategory(category === selectedCategory ? "all" : category)}
-            >
-              <span 
-                className={`w-3 h-3 rounded-full 
-                  ${category === "Snacks" ? "bg-red-200" : 
-                    category === "Books" ? "bg-orange-200" : 
-                    category === "Merch" ? "bg-yellow-200" : 
-                    category === "Apparel" ? "bg-green-200" :
-                    "bg-blue-200"} 
-                  mr-2`}
-              ></span>
-              {category}
-            </button>
-          ))}
+          {["Snacks", "Books", "Merch", "Apparel", "Other"].map((category) => {
+            const isSelected = selectedCategory === category;
+            return (
+              <button
+                key={category}
+                className={`
+                  rounded-full px-3 py-2 text-sm font-semibold text-center
+                  ${vendorCategoryToColor(category)}
+                  ${isSelected ? "ring-2 ring-black" : ""}
+                  transition-all duration-300 ease-in-out
+                `}
+                onClick={() =>
+                  setSelectedCategory(category === selectedCategory ? "all" : category)
+                }
+              >
+                {category}
+              </button>
+            );
+          })}
         </div>
 
         {/* <p className="text-center text-[#C374E6] text-s font-medium mt-9 underline">
@@ -68,10 +87,12 @@ export default function Vendors() {
 
         {/* Day Filters */}
         <div className="mt-8 flex justify-around">
-          {["All Vendors", "Friday", "Saturday", "Sunday"].map(day => (
+          {["All Vendors", "Friday", "Saturday", "Sunday"].map((day) => (
             <button
               key={day}
-              className={`underline ${selectedDay === day ? "font-bold text-[#7E52A0]" : "text-gray-600"}`}
+              className={`underline py-2 ${
+                selectedDay === day ? "font-bold text-[#7E52A0]" : "text-gray-600"
+              }`}
               onClick={() => setSelectedDay(day === selectedDay ? "all" : day)}
             >
               {day}
@@ -84,8 +105,8 @@ export default function Vendors() {
           {filteredVendors.map((vendor, index) => (
             <Link key={index} href={vendor.link} passHref>
               <div className={`${vendor.bgColor} p-4 rounded-lg mb-2 cursor-pointer`}>
-                <p className="font-bold"> {vendor.title}</p>
-                <p> {vendor.day} </p>
+                <p className="font-bold">{vendor.title}</p>
+                <p>{vendor.day}</p>
               </div>
             </Link>
           ))}
