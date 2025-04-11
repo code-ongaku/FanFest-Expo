@@ -20,10 +20,11 @@ export default function EventLocation() {
     <div className="bg-[#F8F1FF] text-[#7E52A0] h-screen w-screen font-roboto-slab flex flex-col items-center relative">
       <Navbar />
 
-      {/* Heading */}
-      <h1 className="mt-7 font-bold text-4xl border-b-2 w-[90%] text-center pb-5">
-        Location
-      </h1>
+      <h1 className="mt-7 font-bold text-4xl pb-2 text-center">
+      <span className="inline-block border-b-2 border-current">Location</span>
+    </h1>
+
+
 
       {/* Venue Info */}
       <div className="w-[90%] mt-5 font-bold text-center">
