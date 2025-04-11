@@ -10,37 +10,37 @@ export default function FoodAndBeverageList() {
     {
       name: "Tim Hortons 🍩",
       type: "beverage",
-      mapref: "/maps/tim_hortons.png",
+      mapref: "/amenityMaps/here_1.png",
       label: "Ground Floor",
     },
     {
       name: "Uncle Tetsu's 🍰",
       type: "food",
-      mapref: "/maps/uncle_tetsu.png",
+      mapref: "/amenityMaps/here_2.png",
       label: "Ground Floor",
     },
     {
       name: "Mr. Pretzels 🥨",
       type: "food",
-      mapref: "/maps/pretzels.png",
+      mapref: "/amenityMaps/here_3.png",
       label: "Ground Floor",
     },
     {
       name: "Bubble Tea Express 🍹",
       type: "beverage",
-      mapref: "/maps/boba.png",
+      mapref: "/amenityMaps/here_2.png",
       label: "Ground Floor",
     },
     {
       name: "Katsu Bros 🍱",
       type: "food",
-      mapref: "/maps/katsu_bros.png",
+      mapref: "/amenityMaps/here_1.png",
       label: "First Floor",
     },
     {
       name: "The Ramen Bar 🍜",
       type: "food",
-      mapref: "/maps/coldbrew.png",
+      mapref: "/amenityMaps/here_3.png",
       label: "First Floor",
     },
   ];
@@ -74,9 +74,9 @@ export default function FoodAndBeverageList() {
           ))}
         </div>
 
-        <p className="text-center text-[#C374E6] font-medium mb-4 underline">
+        {/* <p className="text-center text-[#C374E6] font-medium mb-4 underline">
           View stall on the map or select "Find Route"
-        </p>
+        </p> */}
 
         {/* Stall List and Map Layout */}
         <div className="w-full max-w-4xl space-y-8">
@@ -91,28 +91,20 @@ export default function FoodAndBeverageList() {
                   {stall.name}
                 </h3>
                 <Link
-                  href={{
-                    pathname: "/find_route",
-                    query: {
-                      title: stall.name,
-                      mapref: stall.mapref,
-                    },
-                  }}
-                  className="mt-2 inline-block bg-fuchsia-300 hover:bg-gray-400 text-black py-1 px-4 rounded text-sm font-semibold"
-                >
-                  Find Route
+                href={`/find_route?destination=${encodeURIComponent(stall.name)}`}
+                className="mt-2 inline-block bg-fuchsia-300 hover:bg-gray-400 text-black py-1 px-4 rounded text-sm font-semibold"
+              >
+                Find Route
                 </Link>
               </div>
 
               {/* Right: Map and Expand Button */}
               <div className="p-1 md:w-80 flex flex-col items-center">
-                <div className="w-full h-32 bg-white rounded flex items-center justify-center overflow-hidden">
-                  <img
-                    src={stall.mapref}
-                    alt={stall.name}
-                    className="object-contain max-h-full max-w-full"
-                  />
-                </div>
+                <img
+                  src={stall.mapref}
+                  alt={stall.name}
+                  className="object-contain max-h-full max-w-full"
+                />
                 <div className="w-full mt-2 flex items-center justify-between">
                   <p className="text-sm text-[#7E52A0] whitespace-nowrap">
                     {stall.label}

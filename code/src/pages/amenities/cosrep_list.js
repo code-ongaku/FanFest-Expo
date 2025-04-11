@@ -7,19 +7,19 @@ const cosplayPropRepairData = [
     title: "Cosplay Repair Station - Ground Floor",
     floor: "Ground Floor, near the Cosplay Lounge",
     label: "Ground Floor",
-    mapref: "/maps/cosplay_repair_1.png",
+    mapref: "/amenityMaps/here_1.png",
   },
   {
     title: "Prop Repair Station - 1st Floor",
     floor: "1st Floor, next to the Artist Alley",
     label: "1st Floor",
-    mapref: "/maps/prop_repair_2.png",
+    mapref: "/amenityMaps/here_2.png",
   },
   {
     title: "Cosplay & Prop Repair - 2nd Floor",
     floor: "2nd Floor, near the Workshop Area",
     label: "2nd Floor",
-    mapref: "/maps/cosplay_prop_repair_3.png",
+    mapref: "/amenityMaps/here_3.png",
   },
 ];
 
@@ -34,9 +34,9 @@ export default function CosplayPropRepairList() {
         </h1>
         <hr className="border-[#7E52A0] w-full mb-4" />
 
-        <p className="text-center text-[#C374E6] font-medium mb-4 underline">
+        {/* <p className="text-center text-[#C374E6] font-medium mb-4 underline">
           View cosplay and prop repair stations on the map or select "Find Route"
-        </p>
+        </p> */}
 
         <div className="w-full max-w-4xl space-y-8">
           {cosplayPropRepairData.map((station, index) => (
@@ -49,17 +49,11 @@ export default function CosplayPropRepairList() {
                 <h3 className="text-xl font-bold text-[#7E52A0] mb-1">{station.title}</h3>
                 <p className="text-gray-700 text-sm">{station.floor}</p>
                 <Link
-                  href={{
-                    pathname: "/find_route",
-                    query: {
-                      title: "Cosplay and Prop Repair Station - " + station.title,
-                      mapref: station.mapref,
-                    },
-                  }}
-                  className="mt-2 inline-block bg-fuchsia-300 hover:bg-gray-400 text-black py-1 px-4 rounded text-sm font-semibold"
-                >
-                  Find Route
-                </Link>
+                href={`/find_route?destination=${encodeURIComponent(station.title)}`}
+                className="mt-2 inline-block bg-fuchsia-300 hover:bg-gray-400 text-black py-1 px-4 rounded text-sm font-semibold"
+              >
+                Find Route
+              </Link>
               </div>
 
               {/* Right: Map and Expand Button */}

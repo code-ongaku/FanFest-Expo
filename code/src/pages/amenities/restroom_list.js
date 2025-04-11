@@ -11,31 +11,31 @@ export default function RestroomsList() {
       name: "North Wing Restroom - Level 1",
       type: "regular",
       label: "1st Floor",
-      mapref: "/maps/north_restroom.png",
+      mapref: "/amenityMaps/here_1.png",
     },
     {
       name: "South Hall Restroom - Level 1",
       type: "gender-neutral",
       label: "1st Floor",
-      mapref: "/maps/south_restroom.png",
+      mapref: "/amenityMaps/here_2.png",
     },
     {
       name: "Main Lobby Restroom",
       type: "regular",
       label: "1st Floor",
-      mapref: "/maps/lobby_restroom.png",
+      mapref: "/amenityMaps/here_3.png",
     },
     {
       name: "East Wing Restroom - Level 2",
       type: "gender-neutral",
       label: "2nd Floor",
-      mapref: "/maps/level2_gn_restroom.png",
+      mapref: "/amenityMaps/here_2.png",
     },
     {
       name: "South Wing Restroom - Level 2",
       type: "regular",
       label: "2nd Floor",
-      mapref: "/maps/level2_gn_restroom.png",
+      mapref: "/amenityMaps/here_1.png",
     },
   ];
 
@@ -85,28 +85,20 @@ export default function RestroomsList() {
                   {room.name}
                 </h3>
                 <Link
-                  href={{
-                    pathname: "/find_route",
-                    query: {
-                      title: room.name,
-                      mapref: room.mapref,
-                    },
-                  }}
-                  className="mt-2 inline-block bg-fuchsia-300 hover:bg-gray-400 text-black py-1 px-4 rounded text-sm font-semibold"
-                >
-                  Find Route
+                href={`/find_route?destination=${encodeURIComponent(room.name)}`}
+                className="mt-2 inline-block bg-fuchsia-300 hover:bg-gray-400 text-black py-1 px-4 rounded text-sm font-semibold"
+              >
+                Find Route
                 </Link>
               </div>
 
               {/* Right: Map and Expand Button */}
               <div className="p-1 md:w-80 flex flex-col items-center">
-                <div className="w-full h-32 bg-white rounded flex items-center justify-center overflow-hidden">
                   <img
                     src={room.mapref}
                     alt={room.name}
                     className="object-contain max-h-full max-w-full"
                   />
-                </div>
                 <div className="w-full mt-2 flex items-center justify-between">
                   <p className="text-sm text-[#7E52A0] whitespace-nowrap">
                     {room.label}

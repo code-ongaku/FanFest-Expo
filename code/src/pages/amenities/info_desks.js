@@ -7,13 +7,13 @@ const informationDeskData = [
     title: "Information Desk - Ground Floor",
     floor: "Ground Floor, near the main entrance",
     label: "Ground Floor",
-    mapref: "/maps/info_desk_1.png",
+    mapref: "/amenityMaps/here_3.png",
   },
   {
     title: "Information Desk - 1st Floor",
     floor: "1st Floor, near the main entrance",
     label: "1st Floor",
-    mapref: "/maps/info_desk_2.png",
+    mapref: "/amenityMaps/here_2.png",
   },
 ];
 
@@ -26,9 +26,9 @@ export default function InformationDeskList() {
         <h1 className="text-4xl font-bold mb-1">Find an Information Desk</h1>
         <hr className="border-[#7E52A0] w-full mb-4" />
 
-        <p className="text-center text-[#C374E6] font-medium mb-4 underline">
+        {/* <p className="text-center text-[#C374E6] font-medium mb-4 underline">
           View an information desk on the map or select "Find Route"
-        </p>
+        </p> */}
 
         <div className="w-full max-w-4xl space-y-8">
           {informationDeskData.map((desk, index) => (
@@ -41,16 +41,10 @@ export default function InformationDeskList() {
                 <h3 className="text-xl font-bold text-[#7E52A0] mb-1">{desk.title}</h3>
                 <p className="text-gray-700 text-sm">{desk.floor}</p>
                 <Link
-                  href={{
-                    pathname: "/find_route",
-                    query: {
-                      title: "Information Desk - " + desk.title,
-                      mapref: desk.mapref,
-                    },
-                  }}
-                  className="mt-2 inline-block bg-fuchsia-300 hover:bg-gray-400 text-black py-1 px-4 rounded text-sm font-semibold"
-                >
-                  Find Route
+                href={`/find_route?destination=${encodeURIComponent(desk.title)}`}
+                className="mt-2 inline-block bg-fuchsia-300 hover:bg-gray-400 text-black py-1 px-4 rounded text-sm font-semibold"
+              >
+                Find Route
                 </Link>
               </div>
 

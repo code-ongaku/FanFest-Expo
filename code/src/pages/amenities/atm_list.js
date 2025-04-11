@@ -8,37 +8,37 @@ const atmData = [
     title: "Exhibitor's Hall A",
     floor: "Ground Floor, beside reception",
     label: "Ground Floor",
-    mapref: "/image 4.png",
+    mapref: "/amenityMaps/atm1_1.png",
   },
   {
     title: "East Wing - Level 1",
     floor: "1st Floor, beside the staircase",
     label: "1st Floor",
-    mapref: "/image 4.png",
+    mapref: "/amenityMaps/atm3_2.png",
   },
   {
     title: "West Wing - Level 1",
     floor: "1st Floor, opposite main lobby",
     label: "1st Floor",
-    mapref: "/image 4.png",
+    mapref: "/amenityMaps/atm2_1.png",
   },
   {
     title: "Main Stage Hall",
     floor: "1st Floor, beside main lobby",
     label: "1st Floor",
-    mapref: "/image 4.png",
+    mapref: "/amenityMaps/atm2_2.png",
   },
   {
     title: "East Wing - Level 2",
     floor: "2nd Floor, opposite the staircase",
     label: "2nd Floor",
-    mapref: "/image 4.png",
+    mapref: "/amenityMaps/atm3_1.png",
   },
   {
     title: "South Wing - Level 2",
     floor: "2nd Floor, near Patio",
     label: "2nd Floor",
-    mapref: "/image 4.png",
+    mapref: "/amenityMaps/atm1_2.png",
   },
 ];
 
@@ -52,9 +52,9 @@ export default function ATMList() {
         <h1 className="text-4xl font-bold mb-1">Find an ATM</h1>
         <hr className="border-[#7E52A0] w-full mb-4" />
 
-        <p className="text-center text-[#C374E6] font-medium mb-4 underline">
+        {/* <p className="text-center text-[#C374E6] font-medium mb-4 underline">
           View ATM on the map or select "Find Route"
-        </p>
+        </p> */}
 
         <div className="w-full max-w-4xl space-y-8">
           {atmData.map((atm, index) => (
@@ -67,13 +67,7 @@ export default function ATMList() {
               <h3 className="text-xl font-bold text-[#7E52A0] mb-1">{atm.title}</h3>
               <p className="text-gray-700 text-sm">{atm.floor}</p>
               <Link
-                href={{
-                  pathname: "/find_route",
-                  query: {
-                    title: "ATM - " + atm.title,
-                    mapref: atm.mapref,
-                  },
-                }}
+                href={`/find_route?destination=${encodeURIComponent(atm.title)}`}
                 className="mt-2 inline-block bg-fuchsia-300 hover:bg-gray-400 text-black py-1 px-4 rounded text-sm font-semibold"
               >
                 Find Route
