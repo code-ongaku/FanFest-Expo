@@ -35,15 +35,9 @@ export default function Wishlist() {
         <div className="bg-[#F8F1FF] text-[#7E52A0] min-h-screen w-screen font-roboto-slab flex flex-col items-center">
 
             {isAdded && (
-<<<<<<< Updated upstream
-                <div className="fixed top-15 left-center z-1 bg-stone-100 text-stone-900 border-stone-900 border-1 rounded flex flex-row">
-                    <Link href="/schedule">Added! Click to go to Schedule.</Link>
-                    <Image src={Cancel} className="h-6 w-6 bg-purple-100"
-=======
                 <div className="fixed top-0 left-0 text-2xl z-1 bg-stone-100 text-red-500 border-red-300 border-4 rounded flex flex-row">
                     <Link href="/schedule">Added! Click to go to Schedule.</Link>
                     <Image src={Cancel} className="h-8 w-8 bg-red-100"
->>>>>>> Stashed changes
                         onClick={() => setAdded(false) }/>
                 </div>
             )}
