@@ -20,43 +20,35 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
     // Hardcoded data
-    const events = {
-      arcade: {
-        id: 'arcade',
-        title:'Arcade',
-        category:'Gaming',
+    const artists = {
+      charlies_bakery: {
+        id: 'charlies_bakery',
+        title:"Charlie's Bakery",
+        category:'Food',
         time:'Every day 10AM to 5PM',
-        location:'Lower East Hall',
-        description: "Join us for a day of gaming fun! Play classic arcade games and compete with friends for high scores. Prizes for top players!"
+        location:'Telus 110',
+        description: "A bakery offering a variety of delicious pastries, cakes, and snacks. Perfect for a quick bite or a sweet treat!"
       },
-      opening_ceremony: {
-        id: 'opening_ceremony',
-        title:'Opening Ceremony',
-        category:'Official Events',
-        time:'Friday 10AM to 12PM',
-        location:'Main Stage',
-        description: "Kick off the convention with our opening ceremony! Meet the guests, learn about the schedule, and get ready for an amazing weekend."
-      },
-      idol_fest: {
-        id: 'idol_fest',
-        title:'Idol Fest',
-        category:'Concerts',
-        time:'Saturday 11:30AM to 1PM',
-        location:'Main Stage',
-        description: "Enjoy a showcase of idol performances from various groups! Cheer for your favorites and enjoy the music!"
-      },
+      jacks_candles: {
+        id: 'jacks_candles',
+        title:"Jack's Candles",
+        category:'Crafts',
+        time:'Every day 10AM to 5PM',
+        location:'Telus 201',
+        description: "A stall selling handmade candles in various scents and designs. Perfect for gifts or personal use!"
+      }
     };
   
-    const event = events[params.id];
+    const artist = artists[params.id];
   
     return {
       props: {
-        event
+        artist
       },
     };
   }
 
-  export default function Event({ event }) {
+  export default function Artist({ artist }) {
     const [wishlistModal, setWishlistModal] = useState(false);
     const openWishlistModal = () => {
         setWishlistModal(() => !wishlistModal);
@@ -68,22 +60,22 @@ export async function getStaticProps({ params }) {
     return (
         <div className="bg-[#F8F1FF] text-[#7E52A0] min-h-screen w-screen font-roboto-slab flex flex-col items-center">
             <Navbar/>
-            <h1 className="mt-7 font-bold text-4xl border-b-2 w-[90%] text-center pb-5">{event.title}</h1>
+            <h1 className="mt-7 font-bold text-4xl border-b-2 w-[90%] text-center pb-5">{artist.title}</h1>
             <div className="w-[90%] mt-5 font-bold h-[200px]">
-                <p>Category: {event.category}</p>
-                <p>Time: {event.time}</p>
-                <p>Location: {event.location}</p>
-                <p>Description:<br/>{event.description}</p>
+                <p>Category: {artist.category}</p>
+                <p>Time: {artist.time}</p>
+                <p>Location: {artist.location}</p>
+                <p>Description:<br/>{artist.description}</p>
             </div>
             <div className="flex justify-between w-[90%] gap-4 mt-3 text-white">
                 <button onClick={openWishlistModal} className="py-1 bg-[#7E52A0] rounded max-w-[30%]">Add to Wishlist</button>
-                {wishlistModal && <WishlistModal openWishlistModal={openWishlistModal} params={event}/>}
+                {wishlistModal && <WishlistModal openWishlistModal={openWishlistModal} params={artist}/>}
                 <button onClick={openScheduleModal} className="py-1 bg-[#7E52A0] rounded max-w-[30%]">Add to Schedule</button>
-                {scheduleModal && <ScheduleModal openScheduleModal={openScheduleModal} params={event}/>}
+                {scheduleModal && <ScheduleModal openScheduleModal={openScheduleModal} params={artist}/>}
             </div>
             <div className="w-[90%] mt-3 gap-3 mb-7">
                 <div className="w-full aspect-square bg-white rounded relative">
-                    <Link href={`/find_route?destination=${encodeURIComponent(event.location)}`}>
+                    <Link href={`/find_route?destination=${encodeURIComponent(artist.location)}`}>
                         <button className="absolute bottom-2 right-2 py-1 bg-[#7E52A0] rounded text-white px-3">
                             Directions
                         </button>

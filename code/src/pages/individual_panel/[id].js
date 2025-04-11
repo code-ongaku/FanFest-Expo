@@ -25,7 +25,7 @@ export async function getStaticProps({ params }) {
             id: 'cosplay_chess',
             title:'Cosplay Chess',
             category:'Interactive',
-            time:'11AM to 12PM',
+            time:'Saturday 11AM to 12PM',
             location:'Telus 201',
             description: "Join us for a fun game of chess with cosplayers! Watch as your favorite characters come to life on the chessboard."
         },
@@ -33,10 +33,19 @@ export async function getStaticProps({ params }) {
             id: 'intro_to_cons',
             title:'Intro to Cons',
             category:'Informative',
-            time:'11:30AM to 1PM',
+            time:'Saturday 11:30AM to 1PM',
             location:'Lower East Hall',
             description: "Learn the basics of attending conventions! Tips on what to bring, how to navigate, and making the most of your experience."
-        }
+        },
+        guide_to_cosplay: {
+            id: 'guide_to_cosplay',
+            title:'Guide to Cosplay',
+            category:'Informative',
+            time:'Friday 10AM to 11AM',
+            location:'Telus 110',
+            description: "A comprehensive guide to cosplay! Learn about materials, techniques, and tips for creating your own costumes."
+        },
+
     };
   
     const panel = panels[params.id];
