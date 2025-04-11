@@ -150,7 +150,7 @@ export default function Schedule({}) {
                 {modalOpened && 
                   <div onClick={openModal} className="fixed top-0 left-0 bg-[#111111e1] w-screen h-screen flex justify-center items-center z-10">
                     <div className="bg-white w-[90%] h-[25%] rounded-lg flex flex-col items-center justify-center gap-4 text-[#7E52A0] p-3 text-center">
-                      <h1>Would you like to add remove this item from your schedule?</h1>
+                      <h1>Would you like to remove this item from your schedule?</h1>
                       <div className="flex gap-10 mt-3">
                         <button onClick={() => {trashIt(ind); openModal;}} className="bg-[#7E52A0] text-white rounded-lg px-6 py-2">Remove</button>
                         <button onClick={openModal} className="bg-[#7E52A0] text-white rounded-lg px-6 py-2">Cancel</button>
