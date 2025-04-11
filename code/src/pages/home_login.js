@@ -1,60 +1,64 @@
 import { useState } from "react";
+import { useRouter } from "next/router"; // <-- Import useRouter
 import Navbar from "../components/navbar";
 
 export default function LoggedInHome() {
   const [activeDay, setActiveDay] = useState("Friday");
   const [isEditing, setIsEditing] = useState(false);
   const [name, setName] = useState("Amy Taylor");
+  const router = useRouter(); // <-- Create router instance
 
   const renderTable = (day) => {
-    const times = ["9am", "10am", "11am", "12pm", "1pm", "2pm", "3pm"];
+    const times = [
+      "9am","10am","11am","12pm","1pm",
+      "2pm","3pm","4pm","5pm","6pm","7pm"
+    ];
 
     const getEventForSlot = (time) => {
       if (day === "Friday") {
-        if (time === "10am")
+        if (time === "10am") {
           return (
             <td className="border border-black bg-red-300 py-2" colSpan="2">
               10 am - 12 pm &nbsp;&nbsp; Opening Ceremony
             </td>
           );
-        if (time === "11am")
+        }
+        if (time === "11am") {
           return (
             <td className="border border-black bg-green-300 py-2" colSpan="2">
               11 am - 12 pm &nbsp;&nbsp; Contest A: Cosplay
             </td>
           );
-        if (time === "1pm")
+        }
+        if (time === "1pm") {
           return (
             <td className="border border-black bg-purple-300 py-2" colSpan="2">
               1 pm - 2 pm &nbsp;&nbsp; Panel 1B: Make your own Cosplay
             </td>
           );
+        }
         return <td className="border border-black py-2" colSpan="2"></td>;
       }
 
       if (day === "Saturday") {
-        if (time === "12pm")
+        if (time === "12pm") {
           return (
-            <td
-              className="border border-black bg-[#a0f4ff] text-[#7E52A0] py-2"
-              colSpan="2"
-            >
+            <td className="border border-black bg-[#a0f4ff] text-[#7E52A0] py-2" colSpan="2">
               12 pm - 3 pm &nbsp;&nbsp; Concert: Pop Rock
             </td>
           );
+        }
         return <td className="border border-black py-2" colSpan="2"></td>;
       }
 
       if (day === "Sunday") {
-        if (time === "11am")
+        if (time === "11am") {
           return (
-            <td
-              className="border border-black bg-purple-300 py-2"
-              colSpan="2"
-            >
+            <td className="border border-black bg-purple-300 py-2" colSpan="2">
               11:30 am - 1 pm &nbsp;&nbsp; Idol Fest
             </td>
           );
+        }
         return <td className="border border-black py-2" colSpan="2"></td>;
       }
     };
@@ -93,10 +97,8 @@ export default function LoggedInHome() {
       <div className="text-center mt-4 mb-4">
         <p className="text-md">@amyT223</p>
 
-        {/* Wrap name and edit button together in one flex container */}
         <div className="flex items-center justify-center space-x-2 mt-2">
           <span className="text-lg font-semibold">Name:</span>
-
           {isEditing ? (
             <input
               type="text"
@@ -118,11 +120,10 @@ export default function LoggedInHome() {
               setIsEditing((prev) => !prev);
             }}
           >
-            {isEditing ? "SAVE" : "EDIT"}
+            {isEditing ? "SAVE" : "Edit Name"}
           </button>
         </div>
       </div>
-
 
       {/* Schedule Tabs */}
       <div className="flex space-x-4 mb-4">
@@ -134,7 +135,7 @@ export default function LoggedInHome() {
               activeDay === day
                 ? "bg-[#E3D4FF] hover:bg-[#d6c4f0]"
                 : "bg-[#F0E9FF] hover:bg-[#e4dbf0]"
-            }`}            
+            }`}
           >
             {day}
           </button>
@@ -143,6 +144,14 @@ export default function LoggedInHome() {
 
       {/* Schedule Table */}
       <div className="w-[90%] overflow-x-auto">{renderTable(activeDay)}</div>
+
+      {/* "Edit Schedule" Button */}
+      <button
+        className="bg-[#D6D7FB] hover:bg-[#c5c7f0] text-[#7E52A0] font-semibold px-4 py-1 rounded mt-4"
+        onClick={() => router.push("/schedule")} // <-- Redirect on click
+      >
+        Edit Schedule
+      </button>
     </div>
   );
 }
