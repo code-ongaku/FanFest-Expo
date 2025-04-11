@@ -101,7 +101,7 @@ export async function getStaticProps({ params }) {
                         src={Cancel} 
                         alt="close" 
                         className="h-6 w-6 rounded"
-                        onClick={() => setAddedSchedule(false)}
+                        onClick={() => setAddedWishlist(false)}
                       />
                     </div>
                   </div>
