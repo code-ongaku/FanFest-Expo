@@ -49,6 +49,11 @@ export default function Navbar() {
     router.push("/welcome");
   };
 
+  const handleLogin = () => {
+    setMenuOpen(false);
+    router.push("/login_page");
+  };
+
   return (
     <div className="w-full relative">
       {/* Navbar container */}
@@ -107,6 +112,17 @@ export default function Navbar() {
                 className="flex flex-col items-center text-center text-[#7E52A0] hover:bg-[#d6c4f0] font-semibold w-28 cursor-pointer bg-transparent border-none"
               >
                 <p className="underline">Log out</p>
+              </button>
+            </div>
+          )}
+
+          {currentUser == "guest" && (
+            <div className="flex justify-center mt-4">
+              <button
+                onClick={handleLogin}
+                className="flex flex-col items-center text-center text-[#7E52A0] hover:bg-[#d6c4f0] font-semibold w-28 cursor-pointer bg-transparent border-none"
+              >
+                <p className="underline">Log In</p>
               </button>
             </div>
           )}
