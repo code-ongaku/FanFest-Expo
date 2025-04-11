@@ -1,6 +1,8 @@
 import { useState } from "react";
 import Navbar from "../components/navbar.js";
 import Link from 'next/link'; // Import Link from Next.js
+import Image from "next/image";
+import Cancel from "../../public/cancel.svg";
 
 // Helper to map each category to a background color
 function vendorCategoryToColor(cat) {
@@ -22,7 +24,18 @@ function vendorCategoryToColor(cat) {
 export default function Vendors() {
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [selectedDay, setSelectedDay] = useState("all");
+  const [isAddedWishlist, setAddedWishlist] = useState(false);
+  const [isAddedSchedule, setAddedSchedule] = useState(false);
 
+  const handleAddToWishlist = () => {
+    setAddedWishlist(true);
+    setTimeout(() => setAddedWishlist(false), 10000);
+  };
+
+  const handleAddToSchedule = () => {
+    setAddedSchedule(true);
+    setTimeout(() => setAddedSchedule(false), 10000);
+  };
   const vendors = [
     { title: "Bloom", category: "Apparel", day: "Friday", link: "/bloom", bgColor: "bg-green-200" },
     { title: "Sketch Drive", category: "Merch", day: "Saturday", link: "/sketchDrive", bgColor: "bg-yellow-200" },
@@ -45,6 +58,38 @@ export default function Vendors() {
     <div className="bg-[#F8F1FF] text-[#7E52A0] min-h-screen w-screen font-roboto-slab flex flex-col items-center">
       <Navbar />
       
+      {/* Popups */}
+      {isAddedWishlist && (
+        <div className="fixed top-16 left-1/2 transform -translate-x-1/2 z-50 bg-stone-100 text-stone-900 border border-stone-900 rounded flex justify-between items-center px-3 py-2 shadow-md whitespace-nowrap">
+          <Link href="/wishlist" className="hover:underline">
+            Added! Click to go to Wishlist.
+          </Link>
+          <div className="ml-2 cursor-pointer">
+            <Image
+              src={Cancel}
+              alt="close"
+              className="h-6 w-6"
+              onClick={() => setAddedWishlist(false)}
+            />
+          </div>
+        </div>
+      )}
+      {isAddedSchedule && (
+        <div className="fixed top-28 left-1/2 transform -translate-x-1/2 z-50 bg-stone-100 text-stone-900 border border-stone-900 rounded flex justify-between items-center px-3 py-2 shadow-md whitespace-nowrap">
+          <Link href="/schedule" className="hover:underline">
+            Added! Click to go to Schedule.
+          </Link>
+          <div className="ml-2 cursor-pointer">
+            <Image
+              src={Cancel}
+              alt="close"
+              className="h-6 w-6"
+              onClick={() => setAddedSchedule(false)}
+            />
+          </div>
+        </div>
+      )}
+
       {/* Title Section */}
       <div className="text-center mt-8">
         <h1 className="text-[#7E52A0] font-roboto-slab text-4xl font-bold">Find Vendors</h1>
@@ -103,12 +148,21 @@ export default function Vendors() {
         {/* Vendors List */}
         <div className="mt-6 max-h-[350px] overflow-y-auto">
           {filteredVendors.map((vendor, index) => (
-            <Link key={index} href={vendor.link} passHref>
-              <div className={`${vendor.bgColor} p-4 rounded-lg mb-2 cursor-pointer`}>
-                <p className="font-bold">{vendor.title}</p>
-                <p>{vendor.day}</p>
+            <div
+              key={index}
+              className={`${vendor.bgColor} p-4 rounded-lg mb-2 flex justify-between items-center`}
+            >
+              <Link href={vendor.link} className="flex-grow cursor-pointer">
+                <div>
+                  <p className="font-bold">{vendor.title}</p>
+                  <p>{vendor.day}</p>
+                </div>
+              </Link>
+              <div className="flex gap-2 text-xl ml-4">
+                <button onClick={handleAddToSchedule} title="Add to Schedule">➕</button>
+                <button onClick={handleAddToWishlist} title="Add to Wishlist">❤️</button>
               </div>
-            </Link>
+            </div>
           ))}
         </div>
       </div>

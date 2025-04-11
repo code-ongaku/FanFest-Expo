@@ -23,7 +23,7 @@ export default function InformationDeskList() {
       <Navbar />
 
       <div className="flex flex-col items-center mt-4 px-4">
-        <h1 className="text-4xl font-bold mb-1">Find an Information Desk</h1>
+        <h1 className="text-4xl font-bold mb-1 text-center">Find an Information Desk</h1>
         <hr className="border-[#7E52A0] w-full mb-4" />
 
         {/* <p className="text-center text-[#C374E6] font-medium mb-4 underline">
