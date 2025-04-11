@@ -91,13 +91,20 @@ export default function Events() {
         <div className="mt-6 max-h-[350px] overflow-y-auto">
           {filteredEvents.map((event, index) => (
             <Link key={index} href={event.link} passHref>
-              <div className={`${event.bgColor} p-4 rounded-lg mb-2 cursor-pointer`}>
-                <p className="font-bold"> {event.title}</p>
-                <p> {event.time} </p>
+              <div className={`${event.bgColor} p-4 rounded-lg mb-2 cursor-pointer flex justify-between items-center`}>
+                <div>
+                  <p className="font-bold"> {event.title}</p>
+                  <p> {event.time} </p>
+                </div>
+                <div className="flex gap-2 text-xl">
+                  <span>➕</span>
+                  <span>❤️</span>
+                </div>
               </div>
             </Link>
           ))}
         </div>
+
       </div>
     </div>
   );
