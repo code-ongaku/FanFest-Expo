@@ -79,6 +79,15 @@ export default function GuestHome() {
           <img src="/WishList.svg" alt="Wishlist" className="w-20 h-20 mx-auto mb-2" />
           <p><u>Wishlist</u></p>
         </div>
+        
+        {/* Find Artist */}
+        <div
+          onClick={() => router.push('/find_artist')}
+          className="cursor-pointer"
+        >
+          <img src="/FindArtist.png" alt="Find Artist" className="w-20 h-20 mx-auto mb-2" />
+          <p><u>Find Artist</u></p>
+        </div>
 
         {/* Route */}
         <div
