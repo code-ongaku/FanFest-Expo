@@ -26,7 +26,7 @@ export async function getStaticProps({ params }) {
         id: 'charlies_bakery',
         title:"Charlie's Bakery",
         category:'Food',
-        time:'Every day 10AM to 5PM',
+        time:'Every day 9AM to 6PM',
         location:'Telus 110',
         description: "A bakery offering a variety of delicious pastries, cakes, and snacks. Perfect for a quick bite or a sweet treat!"
       },
@@ -34,7 +34,7 @@ export async function getStaticProps({ params }) {
         id: 'jacks_candles',
         title:"Jack's Candles",
         category:'Crafts',
-        time:'Every day 10AM to 5PM',
+        time:'Every day 9AM to 6PM',
         location:'Telus 201',
         description: "A stall selling handmade candles in various scents and designs. Perfect for gifts or personal use!"
       }

@@ -26,7 +26,7 @@ export async function getStaticProps({ params }) {
         id: 'conbini',
         title:'Conbini',
         category:'Food',
-        time:'10AM to 6PM',
+        time:'9AM to 6PM',
         location:'Telus 110',
         description: "A convenience store offering a variety of snacks, drinks, and merchandise. Perfect for a quick bite or last-minute shopping."
       },
@@ -34,7 +34,7 @@ export async function getStaticProps({ params }) {
         id: 'manga_tent',
         title:'Manga Tent',
         category:'Books',
-        time:'10AM to 5PM',
+        time:'9AM to 6PM',
         location:'Telus 201',
         description: "A tent filled with a wide selection of manga and anime merchandise. Find your favorite series and collectibles here!"
       }
@@ -85,7 +85,7 @@ export async function getStaticProps({ params }) {
             </div>
             <div className="flex justify-between w-[90%] gap-4 mt-3 text-white">
                 <button onClick={openWishlistModal} className="py-1 bg-[#7E52A0] rounded max-w-[30%]">Add to Wishlist</button>
-                {wishlistModal && <WishlistModal openWishlistModal={openWishlistModal} isAddedScheduleWishlist={handleAddToWishlist} params={event}/>}
+                {wishlistModal && <WishlistModal openWishlistModal={openWishlistModal} isAddedWishlist={handleAddToWishlist} params={event}/>}
                 {isAddedWishlist && (
                     <div className="fixed top-15 left-1/2 transform -translate-x-1/2 z-50 bg-stone-100 text-stone-900 border border-stone-900 rounded flex justify-between items-center px-2 whitespace-nowrap">
                     <Link href="/wishlist" >Added! Click to go to Wishlist.</Link>
@@ -100,7 +100,7 @@ export async function getStaticProps({ params }) {
                   </div>
                 )}
                 <button onClick={openScheduleModal} className="py-1 bg-[#7E52A0] rounded max-w-[30%]">Add to Schedule</button>
-                {scheduleModal && <ScheduleModal openScheduleModal={openScheduleModal} isAddedScheduleSchedule={handleAddToSchedule} params={event}/>}
+                {scheduleModal && <ScheduleModal openScheduleModal={openScheduleModal} isAddedSchedule={handleAddToSchedule} params={event}/>}
                 {isAddedSchedule && (
                     <div className="fixed top-15 left-1/2 transform -translate-x-1/2 z-50 bg-stone-100 text-stone-900 border border-stone-900 rounded flex justify-between items-center px-2 whitespace-nowrap">
                     <Link href="/schedule" >Added! Click to go to Schedule.</Link>
