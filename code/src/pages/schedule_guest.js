@@ -98,7 +98,7 @@ export default function Schedule_guest({}) {
           </div>
 
           <div className="h-14"></div>
-          <div className="text-3xl text-center">Your Wishlist is Empty!</div>
+          <div className="text-3xl text-center">Your Schedule is Empty!</div>
         </div>
       </div>
 

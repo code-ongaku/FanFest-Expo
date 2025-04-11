@@ -43,12 +43,12 @@ export default function GuestHome() {
           <p><u>Find Vendor</u></p>
         </div>
 
-        <div onClick={() => router.push('/schedule')} className="cursor-pointer">
+        <div onClick={() => router.push('/schedule_guest')} className="cursor-pointer">
           <img src="/MySchedule.svg" alt="Schedule" className="w-20 h-20 mx-auto mb-2" />
           <p><u>My Schedule</u></p>
         </div>
 
-        <div onClick={() => router.push('/wishlist')} className="cursor-pointer">
+        <div onClick={() => router.push('/wishlist_guest')} className="cursor-pointer">
           <img src="/WishList.svg" alt="Wishlist" className="w-20 h-20 mx-auto mb-2" />
           <p><u>Wishlist</u></p>
         </div>

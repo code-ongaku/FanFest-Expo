@@ -1,4 +1,3 @@
-// components/navbar.js
 import { useRouter } from "next/router";
 import { useState, useContext } from "react";
 import { UserContext } from "../pages/_app"; // adjust import path as needed
@@ -22,8 +21,7 @@ export default function Navbar() {
   const { currentUser, setCurrentUser } = useContext(UserContext); 
   const [menuOpen, setMenuOpen] = useState(false);
 
-  // Decide where the home icon should take the user
-  // based on the currentUser value
+  // Decide where the home icon should take the user based on currentUser
   const homeLink =
     currentUser === "loggedIn"
       ? "/home_login"
@@ -31,20 +29,24 @@ export default function Navbar() {
       ? "/home_signup"
       : "/guest_home";
 
+  // Update schedule and wishlist links based on currentUser status.
+  // For "loggedIn" users, route normally; for guests and signedUp users, use the guest route.
+  const scheduleLink = currentUser === "loggedIn" ? "/schedule" : "/schedule_guest";
+  const wishlistLink = currentUser === "loggedIn" ? "/wishlist" : "/wishlist_guest";
+
   const menuItems = [
     { icon: ConventionLayout, label: "Convention Layout", href: "/convention_layout" },
     { icon: FindAmenities, label: "Find Amenities", href: "/find_amenities" },
     { icon: FindEvents, label: "Find Events", href: "/find_events" },
     { icon: FindPanels, label: "Find Panels", href: "/find_panels" },
     { icon: FindVendors, label: "Find Vendors", href: "/find_vendors" },
-    { icon: MySchedule, label: "My Schedule", href: "/schedule" },
-    { icon: WishList, label: "Wishlist", href: "/wishlist" },
+    { icon: MySchedule, label: "My Schedule", href: scheduleLink },
+    { icon: WishList, label: "Wishlist", href: wishlistLink },
     { icon: FindArtists, label: "Find Artists", href: "/find_artists"},
     { icon: FindRoute, label: "Find Route", href: "/find_route" },
   ];
 
-  // Handle log out logic
-  // We'll set currentUser back to "guest" when user logs out
+  // Handle log out logic: reset currentUser to "guest"
   const handleLogout = () => {
     setCurrentUser("guest");
     setMenuOpen(false);
@@ -106,7 +108,7 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* Show Log out only if user is NOT "guest" */}
+          {/* Show Log out only if user is not "guest" */}
           {currentUser !== "guest" && (
             <div className="flex justify-center mt-4">
               <button
@@ -118,7 +120,7 @@ export default function Navbar() {
             </div>
           )}
 
-          {currentUser == "guest" && (
+          {currentUser === "guest" && (
             <div className="flex justify-center mt-4">
               <button
                 onClick={handleLogin}
