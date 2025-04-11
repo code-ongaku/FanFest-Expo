@@ -8,6 +8,41 @@ export default function Schedule({}) {
   const [isDownloaded, setDownloaded] = useState(false)
   const [isSaved, setSaved] = useState(false)
   const [selectedDay, setSelectedDay] = useState("Friday");
+  const [ind, setInd] = useState(0)
+  const [modalOpened, setModal] = useState(false)
+  const openModal = () => {setModal(() => !modalOpened)}
+  const [isTrashed, setTrashed] = useState(["visible", "invisible", "visible", "invisible", "visible", "invisible", "visible",
+    "invisible", "visible", "invisible", "visible",
+    "invisible", "visible", "invisible", "visible",
+  ]);
+  const trashIt = (i) => {
+    setTrashed(prev => {const newArr = [...prev]; newArr[i] = "invisible"; return newArr})
+  }
+
+  const Bookmarks = [
+    { title: "Arcade", num: 0, day: "Friday", link: "/individual_event/arcade", bgColor: "bg-red-200", ht: "h-28" },
+    { title: "", num: 1, day: "Friday", link: "", bgColor: "", ht: "h-14" },
+    { title: "Make Your Own Cosplay", num: 2,  day: "Friday", link: "/", bgColor: "bg-red-200", ht: "h-28" },
+    { title: "", num: 3,  day: "Friday", link: "", bgColor: "", ht: "h-28" },
+    { title: "Concert: Pop Rock", num: 4, day: "Friday", link: "/", bgColor: "bg-green-200", ht: "h-14" },
+    { title: "", num: 5, day: "Friday", link: "", bgColor: "", ht: "h-14" },
+    { title: "Emily's Sweater Bonanza", num: 6, day: "Friday", link: "/", bgColor: "bg-blue-200", ht: "h-14"},
+
+    { title: "", num: 7, day: "Saturday", link: "", bgColor: "", ht: "h-28" },
+    { title: "Guide to Cosplay", num: 8, day: "Saturday", link: "/individual_panel/guide_to_cosplay", bgColor: "bg-blue-200", ht: "h-14" },
+    { title: "", day: "Saturday", num: 9, link: "", bgColor: "", ht: "h-70" },
+    { title: "Intro to Cons", num: 10, day: "Saturday", link: "/individual_panel/intro_to_cons", bgColor: "bg-yellow-200", ht: "h-28" },
+
+    { title: "", num: 11, day: "Sunday", link: "", bgColor: "", ht: "h-56" },
+    { title: "Awards Ceremony", num: 12, day: "Sunday", link: "/individual_panel/guide_to_cosplay", bgColor: "bg-blue-200", ht: "h-28" },
+    { title: "", day: "Sunday", num: 13, link: "", bgColor: "", ht: "h-14" },
+    { title: "Wheel of Anime", num: 14, day: "Sunday", link: "/individual_panel/intro_to_cons", bgColor: "bg-yellow-200", ht: "h-14" }
+  ]
+
+  const filteredBookmarks = Bookmarks.filter((bookmark) => {
+    const dayFilter = selectedDay === "All" || selectedDay === "all" || bookmark.day === selectedDay;
+    return dayFilter;
+  });
 
   return (
     <div className="bg-[#F8F1FF] text-[#7E52A0] min-h-screen w-screen font-roboto-slab flex flex-col items-center">
@@ -16,6 +51,7 @@ export default function Schedule({}) {
       <div className="text-center mt-8">
         <h1 className="text-[#7E52A0] font-roboto-slab text-4xl font-bold">Schedule</h1>
         <div className="w-[120%] border-b border-[#7E52A0] my-4 ml-[-12%]"></div>
+        <p>Click the trash can to remove from wishlist</p>
       </div>
 
       <Link href="/wishlist" passHref>
@@ -97,69 +133,34 @@ export default function Schedule({}) {
             </div>
           </div>
 
-          {selectedDay == "Friday" && (
-            <div className="col-span-3">
-              <div className="h-14"></div>
-              <Link href="/individual_event/arcade" passHref>
-                <div className="bg-red-200 pl-4 rounded-r-lg cursor-pointer h-28 flex items-center">
-                  <p>Arcade</p>
+          <div className="col-span-3">
+            {filteredBookmarks.map((bookmark, index) => (
+              <div key={index} className={`flex flex-row display ${isTrashed[bookmark.num]}`}>
+                <Link className="w-5/6" href={bookmark.link} passHref>
+                  <div className={`${bookmark.bgColor} pl-4 cursor-pointer flex items-center ${bookmark.ht}`}>
+                    <p className="font-bold">{bookmark.title}</p>
+                  </div>
+                </Link>
+                <div className={`w-1/6 bg-[#DECDF5] border-l-1 border-[#7E52A0] flex rounded-r-lg justify-center items-center cursor-pointer hover:bg-[#CAAFEF] ${bookmark.ht}`}
+                  onClick={() => {openModal(); setInd(bookmark.num);}}>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-10">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+                  </svg>
                 </div>
-              </Link>
-              <div className="h-14"></div>
-              <Link href="/contest-A-cosplay" passHref>
-                <div className="bg-yellow-200 rounded-r-lg cursor-pointer h-28 pl-4 flex items-center">
-                  <p>Make Your Own Cosplay</p>
-                </div>
-              </Link>
-              <div className="h-14"></div>
-              <Link href="/makeYourOwnCosplay" passHref>
-                <div className="bg-green-200 rounded-r-lg cursor-pointer h-14 pl-4 flex items-center">
-                  <p>Concert: Pop Rock</p>
-                </div>
-              </Link>
-              <div className="h-14"></div>
-              <div className="h-7"></div>
-              <Link href="/emilysSweater" passHref>
-                <div className="bg-purple-200 rounded-r-lg cursor-pointer h-7 pl-4 flex items-center">
-                  <p>Emily's Sweater Bonanza</p>
-                </div>
-              </Link>
-            </div>
-          )}
-
-          {selectedDay == "Saturday" && (
-            <div className="col-span-3">
-              <div className="h-28"></div>
-              <Link href="/opening-ceremony" passHref>
-                <div className="bg-green-200 pl-4 rounded-r-lg cursor-pointer h-14 flex items-center">
-                  <p>Guide to Cosplay</p>
-                </div>
-              </Link>
-              <div className="h-14"></div>
-              <Link href="/individual_events/intro_to_cons" passHref>
-                <div className="bg-orange-200 rounded-r-lg cursor-pointer h-28 pl-4 flex items-center">
-                  <p>Intro to Cons</p>
-                </div>
-              </Link>
-            </div>
-          )}
-
-          {selectedDay == "Sunday" && (
-            <div className="col-span-3">
-              <div className="h-28"></div>
-              <Link href="/opening-ceremony" passHref>
-                <div className="bg-green-200 pl-4 rounded-r-lg cursor-pointer h-14 flex items-center">
-                  <p>Awards Ceremony</p>
-                </div>
-              </Link>
-              <div className="h-42"></div>
-              <Link href="/contest-A-cosplay" passHref>
-                <div className="bg-cyan-200 rounded-r-lg cursor-pointer h-28 pl-4 flex items-center">
-                  <p>Wheel of Anime</p>
-                </div>
-              </Link>
-            </div>
-          )}
+                {modalOpened && 
+                  <div onClick={openModal} className="fixed top-0 left-0 bg-[#111111e1] w-screen h-screen flex justify-center items-center z-10">
+                    <div className="bg-white w-[90%] h-[25%] rounded-lg flex flex-col items-center justify-center gap-4 text-[#7E52A0] p-3 text-center">
+                      <h1>Would you like to add remove this item from your schedule?</h1>
+                      <div className="flex gap-10 mt-3">
+                        <button onClick={() => {trashIt(ind); openModal;}} className="bg-[#7E52A0] text-white rounded-lg px-6 py-2">Remove</button>
+                        <button onClick={openModal} className="bg-[#7E52A0] text-white rounded-lg px-6 py-2">Cancel</button>
+                      </div>
+                    </div>
+                  </div>
+                }
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 

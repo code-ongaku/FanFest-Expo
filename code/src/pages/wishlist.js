@@ -12,12 +12,41 @@ export default function Wishlist() {
   const [isAdded, setAdded] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState("all");
 
+<<<<<<< Updated upstream
   const openModal = () => setModal((prev) => !prev);
   const trashIt = (i) => {
     setTrashed((prev) => {
       const newArr = [...prev];
       newArr[i] = true;
       return newArr;
+=======
+    const [selectedDay, setSelectedDay] = useState("all");
+    const [modalOpened, setModal] = useState(false)
+    const [ind, setInd] = useState(0)
+    const openModal = () => {setModal(() => !modalOpened)}
+    const [isTrashed, setTrashed] = useState([false, false, false, false, false, false]);
+    const trashIt = (i) => {
+        setTrashed(prev => {const newArr = [...prev]; newArr[i] = true; return newArr})
+    }
+    const [isAdded, setAdded] = useState(false);
+
+    const [selectedCategory, setSelectedCategory] = useState("all");
+
+    const Bookmarks = [
+        { title: "Arcade", num: 0, time: "Friday: 10 am - 5 pm", day: "Friday", link: "/individual_event/arcade", bgColor: "bg-red-200", category: "Event" },
+        { title: "Idol Fest", num: 1, time: "Friday: 11:30 am - 1 pm", day: "Saturday", link: "/individual_event/idol_fest", bgColor: "bg-red-200", category: "Event" },
+        { title: "Charlie's Bakery", num: 2, time: "Friday", day: "Friday", link: "/individual_artist/charlies_bakery", bgColor: "bg-green-200", category: "Artist" },
+        { title: "Make Your Own Cosplay", num: 3, time: "Friday: 12 pm - 2 pm", day: "Friday", link: "/makeYourOwnCosplay", bgColor: "bg-blue-200", category: "Panel" },
+        { title: "Balancing Work and Expo", num: 4, time: "Sunday: 10 am - 12 pm", day: "Sunday", link: "/balancingWorkAndExpo", bgColor: "bg-blue-200", category: "Panel" },
+        { title: "PosterZ", time: "Saturday", num: 5, day: "Saturday", link: "/posterz", bgColor: "bg-yellow-200", category: "Vendor" }
+    ]
+
+    const filteredBookmarks = Bookmarks.filter((bookmark, index) => {
+        const categoryFilter = selectedCategory === "all" || bookmark.category === selectedCategory;
+        const dayFilter = selectedDay === "All" || selectedDay === "all" || bookmark.day === selectedDay;
+        const trashed = !isTrashed[index]
+        return categoryFilter && dayFilter && trashed;
+>>>>>>> Stashed changes
     });
   };
 
