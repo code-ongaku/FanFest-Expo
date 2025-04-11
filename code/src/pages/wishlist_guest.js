@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import Cancel from "../../public/cancel.svg"
 
-export default function Wishlist() {
+export default function Wishlist_guest() {
 
     const [selectedDay, setSelectedDay] = useState("all");
     const [modalOpened, setModal] = useState(false)
@@ -16,22 +16,14 @@ export default function Wishlist() {
     }
     const [isAdded, setAdded] = useState(false);
 
-    const [selectedCategory, setSelectedCategory] = useState("all");
-
     const Bookmarks = [
-        { title: "Arcade", num: 0, time: "Friday: 10 am - 5 pm", day: "Friday", link: "/arcade", bgColor: "bg-red-200", category: "Event" },
-        { title: "Idol Fest", num: 1, time: "Friday: 11:30 am - 1 pm", day: "Saturday", link: "/idol-fest", bgColor: "bg-red-200", category: "Event" },
-        { title: "Charlie's Bakery", num: 2, time: "Friday", day: "Friday", link: "/charliesBakery", bgColor: "bg-green-200", category: "Artist" },
-        { title: "Make Your Own Cosplay", num: 3, time: "Friday: 12 pm - 2 pm", day: "Friday", link: "/makeYourOwnCosplay", bgColor: "bg-blue-200", category: "Panel" },
-        { title: "Balancing Work and Expo", num: 4, time: "Sunday: 10 am - 12 pm", day: "Sunday", link: "/balancingWorkAndExpo", bgColor: "bg-blue-200", category: "Panel" },
-        { title: "PosterZ", time: "Saturday", num: 5, day: "Saturday", link: "/posterz", bgColor: "bg-yellow-200", category: "Vendor" }
+        
     ]
 
     const filteredBookmarks = Bookmarks.filter((bookmark, index) => {
-        const categoryFilter = selectedCategory === "all" || event.category === selectedCategory;
         const dayFilter = selectedDay === "All" || selectedDay === "all" || bookmark.day === selectedDay;
         const trashed = !isTrashed[index]
-        return categoryFilter && dayFilter && trashed;
+        return dayFilter && trashed;
     });
 
     return (
@@ -56,28 +48,6 @@ export default function Wishlist() {
 
             {/* Categories Section */}
             <div className="mt-3 w-[90%] max-w-md">
-                <h2 className="text-lg font-bold mb-4">Filter by Categories</h2>
-                <div className="grid grid-cols-3 gap-2">
-                    {["Events", "Panels", "Vendors", "Artists"].map(category => (
-                        <button
-                            key={category}
-                            className={`rounded-full px-3 py-1 flex items-center justify-center 
-                                ${selectedCategory === category ? "bg-gray-300 text-gray-500" : "bg-[#E9F0F8]"} 
-                                transition-all duration-300 ease-in-out`}
-                            onClick={() => setSelectedCategory(category === selectedCategory ? "all" : category)}
-                        >
-                            <span 
-                                className={`w-3 h-3 rounded-full 
-                                    ${category === "Events" ? "bg-red-300" : 
-                                        category === "Panels" ? "bg-blue-300" : 
-                                        category === "Vendors" ? "bg-yellow-300" : 
-                                        "bg-green-300"} 
-                                    mr-2`}
-                            ></span>
-                            {category}
-                        </button>
-                    ))}
-                </div>
 
                 {/* Day Filters */}
                 <div className="mt-4 flex justify-around">
@@ -94,6 +64,9 @@ export default function Wishlist() {
 
                 {/* Bookmarks List */}
                 <div className="mt-3 max-h-[450px] overflow-y-auto"> {/* max-h and overflow-y for scrollbar */}
+                    
+                    <div className="h-14"></div>
+                    <div className="text-3xl text-center">Your Wishlist is Empty!</div>
                     
                     {filteredBookmarks.map((bookmark, index) => (
                         <div key={index} className="mb-2 flex flex-row">

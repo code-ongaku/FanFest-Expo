@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from "next/image";
 import { useState } from "react";
 import Cancel from "../../public/cancel.svg"
-export default function Schedule({}) {
+export default function Schedule_guest({}) {
 
   const [isDownloaded, setDownloaded] = useState(false)
   const [isSaved, setSaved] = useState(false)
@@ -97,69 +97,8 @@ export default function Schedule({}) {
             </div>
           </div>
 
-          {selectedDay == "Friday" && (
-            <div className="col-span-3">
-              <div className="h-14"></div>
-              <Link href="/individual_event/arcade" passHref>
-                <div className="bg-red-200 pl-4 rounded-r-lg cursor-pointer h-28 flex items-center">
-                  <p>Arcade</p>
-                </div>
-              </Link>
-              <div className="h-14"></div>
-              <Link href="/contest-A-cosplay" passHref>
-                <div className="bg-yellow-200 rounded-r-lg cursor-pointer h-28 pl-4 flex items-center">
-                  <p>Make Your Own Cosplay</p>
-                </div>
-              </Link>
-              <div className="h-14"></div>
-              <Link href="/makeYourOwnCosplay" passHref>
-                <div className="bg-green-200 rounded-r-lg cursor-pointer h-14 pl-4 flex items-center">
-                  <p>Concert: Pop Rock</p>
-                </div>
-              </Link>
-              <div className="h-14"></div>
-              <div className="h-7"></div>
-              <Link href="/emilysSweater" passHref>
-                <div className="bg-purple-200 rounded-r-lg cursor-pointer h-7 pl-4 flex items-center">
-                  <p>Emily's Sweater Bonanza</p>
-                </div>
-              </Link>
-            </div>
-          )}
-
-          {selectedDay == "Saturday" && (
-            <div className="col-span-3">
-              <div className="h-28"></div>
-              <Link href="/opening-ceremony" passHref>
-                <div className="bg-green-200 pl-4 rounded-r-lg cursor-pointer h-14 flex items-center">
-                  <p>Guide to Cosplay</p>
-                </div>
-              </Link>
-              <div className="h-14"></div>
-              <Link href="/individual_events/intro_to_cons" passHref>
-                <div className="bg-orange-200 rounded-r-lg cursor-pointer h-28 pl-4 flex items-center">
-                  <p>Intro to Cons</p>
-                </div>
-              </Link>
-            </div>
-          )}
-
-          {selectedDay == "Sunday" && (
-            <div className="col-span-3">
-              <div className="h-28"></div>
-              <Link href="/opening-ceremony" passHref>
-                <div className="bg-green-200 pl-4 rounded-r-lg cursor-pointer h-14 flex items-center">
-                  <p>Awards Ceremony</p>
-                </div>
-              </Link>
-              <div className="h-42"></div>
-              <Link href="/contest-A-cosplay" passHref>
-                <div className="bg-cyan-200 rounded-r-lg cursor-pointer h-28 pl-4 flex items-center">
-                  <p>Wheel of Anime</p>
-                </div>
-              </Link>
-            </div>
-          )}
+          <div className="h-14"></div>
+          <div className="text-3xl text-center">Your Wishlist is Empty!</div>
         </div>
       </div>
 

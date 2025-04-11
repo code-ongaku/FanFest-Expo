@@ -25,6 +25,7 @@ export default function Artists() {
       <div className="text-center mt-8">
         <h1 className="text-[#7E52A0] font-roboto-slab text-4xl font-bold">Find Artists</h1>
         <div className="w-[120%] border-b border-[#7E52A0] my-4 ml-[-12%]"></div>
+        <p>Artists run from 9am to 6pm</p>
       </div>
 
       {/* Categories Section */}
