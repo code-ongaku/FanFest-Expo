@@ -1,8 +1,42 @@
 # FanFest-Expo
 
-A Convention/Event Navigation System
+Convention/Event Navigation System
 
-## Individual Pages
+A website designed for users to easily navigate FanFest Expo, a 3-day convention hosted by FanNation Productions.
+
+## Running the code
+
+First clone the repository
+then run the following commands
+
+```bash
+cd code
+npm install
+npm run dev
+```
+
+## Main Functions:
+
+#### View Convention Layout
+Navigate to this page to view a map of the venue
+
+#### Find Amenities:
+Navigate to this page to find out more about available amnenities such as Information Desks, ATM, Restrooms, Food & Beverage, Water Refill & Supply Stations
+
+#### Find Events:
+
+#### Find Panels:
+
+#### Find Vendors:
+
+#### Find Artists:
+
+#### Schedule
+
+
+#### WishList
+
+## Working Individual Activity Pages
 
 Events
 
@@ -21,13 +55,7 @@ Vendors
 - Conbini
 - Manga Tent
 
-## Running the code
+Atists 
 
-First clone the repository
-then run the following commands
-
-```bash
-cd code
-npm install
-npm run dev
-```
+- Charlie's Bakery
+- Jack's Candles
