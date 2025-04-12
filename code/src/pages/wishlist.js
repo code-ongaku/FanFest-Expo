@@ -119,7 +119,7 @@ export default function Wishlist() {
       <div className="text-center mt-8">
         <h1 className="text-[#7E52A0] font-roboto-slab text-4xl font-bold">Wishlist</h1>
         <div className="w-[120%] border-b border-[#7E52A0] my-4 ml-[-12%]"></div>
-        <p>Click '+' to add to schedule</p>
+        <p>Click + to add to schedule</p>
         <p>Click the trash can to remove from wishlist</p>
       </div>
 

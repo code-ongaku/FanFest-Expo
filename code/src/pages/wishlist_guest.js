@@ -70,7 +70,7 @@ export default function Wishlist_guest() {
           Wishlist
         </h1>
         <div className="w-[120%] border-b border-[#7E52A0] my-4 ml-[-12%]"></div>
-        <p>Click '+' to add to schedule</p>
+        <p>Click + to add to schedule</p>
         <p>Click the trash can to remove from wishlist</p>
       </div>
 
