@@ -24,17 +24,22 @@ Navigate to this page to view a map of the venue
 Navigate to this page to find out more about available amnenities such as Information Desks, ATM, Restrooms, Food & Beverage, Water Refill & Supply Stations
 
 #### Find Events:
+Navigate to this page to discover events and find route to individual events
 
 #### Find Panels:
+Navigate to this page to discover panels and find route to individual events
 
 #### Find Vendors:
+Navigate to this page to discover vendors and find route to individual events
 
 #### Find Artists:
+Navigate to this page to discover artists and find route to individual events
 
 #### Schedule
-
+Navigate to this page to check schedule and modify (add/remove)
 
 #### WishList
+Navigate to this page to check wishlist and modify (add to schedule/remove)
 
 ## Working Individual Activity Pages
 
