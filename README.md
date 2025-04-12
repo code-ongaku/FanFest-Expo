@@ -17,6 +17,9 @@ npm run dev
 
 ## Main Functions:
 
+#### User Authentication
+User can continue as a guest, Login to an exising account, or Sign Up for a new account
+
 #### View Convention Layout
 Navigate to this page to view a map of the venue
 
