@@ -102,23 +102,24 @@ export default function Schedule_guest({}) {
         </div>
       </div>
 
-      
-      {isSaved && (
-        <div className="fixed bottom-15 center-0 text-2xl z-1 bg-stone-100 text-red-500 border-red-300 border-4 rounded flex flex-row">
-          <p>Schedule Saved.</p>
+      {isDownloaded && (
+        <div className={`fixed ${isSaved == false ? "bottom-15" : "bottom-27"} center-0 text-2xl z-1 bg-stone-100 text-red-500 border-red-300 border-4 rounded flex flex-row`}>
+          <p>Schedule Downloaded.</p>
             <Image src={Cancel} className="h-8 w-8 bg-red-100"
-              onClick={() => setSaved(false) }/>
+              onClick={() => setDownloaded(false) }/>
         </div>
       )}
+
+      
 
 
       {/* Save and download buttons */}
       <div className="mt-3 flex justify-between">
-        
-        <div className="text-[#F8F1FF] bg-[#7E52A0] p-3 rounded-full mt-5 ml-13 cursor-pointer w-30 flex items-center justify-center"
-          onClick={() => setSaved(true)}>
-          <p>Save</p>
+        <div className="text-[#F8F1FF] bg-[#7E52A0] p-3 rounded-full mt-5 mr-13 cursor-pointer w-30 flex items-center justify-center"
+          onClick={() => setDownloaded(true)}>
+          <p>Download</p>
         </div>
+        
       </div>
     </div>
   );
