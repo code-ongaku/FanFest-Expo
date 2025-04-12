@@ -35,7 +35,7 @@ export default function Panels() {
     { title: "Intro to Cons", time: "Saturday: 11:30 am - 1 pm", category: "Informative", day: "Saturday", link: "/individual_panel/intro_to_cons", bgColor: "bg-cyan-100" },
     { title: "Idol Festival Crash Course", time: "Sunday: 12 pm - 1 pm", category: "Interactive", day: "Sunday", link: "/idolFestivalCrashCourse", bgColor: "bg-green-200" },
     { title: "Make Your Own Cosplay", time: "Sunday: 12 pm - 2 pm", category: "Interactive", day: "Sunday", link: "/makeYourOwnCosplay", bgColor: "bg-green-200" },
-    { title: "Wheel of Anime", time: "Friday: 1 pm - 2 pm", category: "Interactive", day: "Saturday", link: "/wheelOfAnime", bgColor: "bg-green-200" },
+    { title: "Wheel of Anime", time: "Friday: 1 pm - 2 pm", category: "Interactive", day: "Friday", link: "/wheelOfAnime", bgColor: "bg-green-200" },
   ];
 
   // Filter logic

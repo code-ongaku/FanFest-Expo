@@ -26,8 +26,8 @@ export default function Wishlist() {
     {
       title: "Arcade",
       num: 0,
-      time: "Friday: 10 am - 5 pm",
-      day: "Friday",
+      time: "Saturday: 10 am - 4 pm",
+      day: "Saturday",
       link: "/arcade",
       bgColor: "bg-red-200",
       category: "Events", // updated from "Event"
@@ -36,7 +36,7 @@ export default function Wishlist() {
       title: "Idol Fest",
       num: 1,
       time: "Friday: 11:30 am - 1 pm",
-      day: "Saturday",
+      day: "Friday",
       link: "/idol-fest",
       bgColor: "bg-red-200",
       category: "Events", // updated from "Event"
@@ -53,8 +53,8 @@ export default function Wishlist() {
     {
       title: "Make Your Own Cosplay",
       num: 3,
-      time: "Friday: 12 pm - 2 pm",
-      day: "Friday",
+      time: "Sunday: 12 pm - 2 pm",
+      day: "Sunday",
       link: "/makeYourOwnCosplay",
       bgColor: "bg-blue-200",
       category: "Panels", // updated from "Panel"
@@ -62,8 +62,8 @@ export default function Wishlist() {
     {
       title: "Balancing Work and Expo",
       num: 4,
-      time: "Sunday: 10 am - 12 pm",
-      day: "Sunday",
+      time: "Friday: 10 am - 12 pm",
+      day: "Friday",
       link: "/balancingWorkAndExpo",
       bgColor: "bg-blue-200",
       category: "Panels", // updated from "Panel"

@@ -39,7 +39,7 @@ export default function Vendors() {
   const vendors = [
     { title: "Bloom", category: "Apparel", day: "Friday", link: "/bloom", bgColor: "bg-green-200" },
     { title: "Sketch Drive", category: "Merch", day: "Saturday", link: "/sketchDrive", bgColor: "bg-yellow-200" },
-    { title: "Manga Tent", category: "Books", day: "Saturday", link: "/individual_vendor/manga_tent", bgColor: "bg-orange-100" },
+    { title: "Manga Tent", category: "Books", day: "Saturday", link: "/individual_vendor/manga_tent", bgColor: "bg-orange-300" },
     { title: "Conbini", category: "Snacks", day: "Sunday", link: "/individual_vendor/conbini", bgColor: "bg-red-200" },
     { title: "Mako House", category: "Snacks", day: "Sunday", link: "/makoHouse", bgColor: "bg-red-200" },
     { title: "PosterZ", category: "Merch", day: "Saturday", link: "/posterz", bgColor: "bg-yellow-200" }
